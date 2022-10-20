@@ -63,10 +63,10 @@ const FormComponent =()=>{
     }
 //--------Showing Part 
     return(
-        <div className ="container">
-        <h2>Sign Up</h2>
-        <p>หากเป็นสมาชิกแล้วกรุณา <Link to="/sign-in">เข้าสู่ระบบ</Link></p>
-           <form className ="form" onSubmit={validateForm}> 
+        <div className ="container-sign-up">
+           <form className ="form" onSubmit={validateForm}>
+                <h2 className='Sign-up-header'>Sign Up</h2>
+                <p>หากเป็นสมาชิกแล้วกรุณา <Link to="/sign-in">เข้าสู่ระบบ</Link></p>
                 <div className="form-control">
                     <label>ชื่อผู้ใช้</label>
                     <input type="text" placeholder="กรุณากรอกชื่อผู้ใช้" value={userName} onChange={(e)=>setUserName(e.target.value)} style={{borderRightColor:userNameColor}}/>
@@ -92,7 +92,7 @@ const FormComponent =()=>{
                     <input type="password" placeholder="กรุณากรอกยืนยันรหัสผ่าน" value={repassword} onChange={(e)=>setRePassword(e.target.value)} style={{borderRightColor:repasswordColor}}/>
                     <small>{errorRepassword}</small>
                 </div>
-                <button type="submit">ลงทะเบียน</button>
+                <button className='sign-up-btn' type="submit">ลงทะเบียน</button>
            </form> 
         </div>
     )
