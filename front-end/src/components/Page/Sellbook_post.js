@@ -1,10 +1,8 @@
 import './style/Sellbook_post.css'
 const Sellbook_post=()=>{
     return(
-        <div >
-            <div className='container-sellbook-post'>
-                <h1>ยินดีต้อนรับสู่ Book Seller</h1>
-            </div>
+        <div className='container-sellbook-post'>
+            <h1>ยินดีต้อนรับสู่ Book Seller</h1>
             <div className='post-sellbook-container'>
                  <div className='photo-block'>
                     <h1>This is picture</h1>

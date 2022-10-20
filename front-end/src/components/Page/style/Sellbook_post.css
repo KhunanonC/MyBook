@@ -13,12 +13,16 @@
     height: 400px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.container-sellbook-post{
+.container-sellbook-post h1{
     font-size: 30px;
+}
+.container-sellbook-post{
+    /* font-size: 30px; */
     display:flex ;
     justify-content: center;
     align-items: center;
     padding:25px;
+    flex-direction: column;
 }
 .post-sellbook-container{
     padding: 15px;
