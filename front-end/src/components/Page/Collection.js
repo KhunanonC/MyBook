@@ -1,5 +1,5 @@
 import React from "react"
-import './Collection.css'
+import './style/Collection.css'
 import book1 from '../../pic/BookSildeShow/book1.jpg';
 import book2 from '../../pic/BookSildeShow/book2.jpg';
 import book3 from '../../pic/BookSildeShow/book3.jpg';

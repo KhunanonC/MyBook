@@ -3,16 +3,6 @@ import { TbShoppingCartDiscount } from "react-icons/tb";
 import { BiCategory} from "react-icons/bi";
 
 const MenuData =[
-    // {
-    //     title:"Sign In",
-    //     path:'/sign-in',
-    //     icon:<HiOutlineHome/>
-    // },
-    // {
-    //     title:"Sign Up",
-    //     path:'/sign-up',
-    //     icon:<HiOutlineHome/>
-    // },
     {
         title:"Home",
         path:'/',
@@ -23,11 +13,11 @@ const MenuData =[
         path:'/collection',
         icon:<BiCategory/>
     },
-    // {
-    //     title:"Promotion",
-    //     path:'/promotion',
-    //     icon:<TbShoppingCartDiscount/>
-    // },
+    {
+        title:"Book Seller",
+        path:'/sell-book',
+        icon:<TbShoppingCartDiscount/>
+    },
     {
         title:"Chatbook",
         path:'/chatbook',
