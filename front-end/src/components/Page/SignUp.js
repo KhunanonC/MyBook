@@ -2,7 +2,7 @@ import './style/SignUp.css'
 import { useState } from "react";
 import {Link} from "react-router-dom";
 
-const FormComponent =()=>{
+const SignUp =()=>{
 //------State InitPart
     const [userName,setUserName]= useState('')
     const [phone,setUserPhone]= useState('')
@@ -97,4 +97,4 @@ const FormComponent =()=>{
         </div>
     )
 }
-export default FormComponent
+export default SignUp
