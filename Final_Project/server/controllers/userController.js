@@ -34,7 +34,7 @@ exports.signUp=(req,res)=>{
     if(confirmpassword != password){
         return res.status(400).json({error:"กรุณากรอกรหัสผ่านให้ตรงกัน"})
     }
-    
+
     //บันทึกข้อมูล user ลงใน database
     userDatabase.create({username,telephone,email,password,confirmpassword},(err,blog)=>{
         if(err){

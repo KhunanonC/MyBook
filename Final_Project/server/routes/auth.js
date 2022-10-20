@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const {logIn} = require("../controllers/authController")
+const { logIn } = require("../controllers/authController")
 
 router.post('/login',logIn)
 

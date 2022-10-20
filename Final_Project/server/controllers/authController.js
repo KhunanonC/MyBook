@@ -7,13 +7,13 @@ exports.logIn=(req,res)=>{
 
     switch(true){
         case !username:
-            return res.status(400).json({error:"กรุณาป้อน Username"})
+            return res.status(400).json({error:"กรุณากรอกชื่อผู้ใช้"})
         case !password:
-            return res.status(400).json({error:"กรุณาป้อน Password"})
+            return res.status(400).json({error:"กรุณากรอกรหัสผ่าน"})
     }
     userDatabase.find({username,password},(err,blog)=>{
         if(!blog[0]){
-            return res.status(400).json({error:"Username หรือ Password ผิด"})
+            return res.status(400).json({error:"ชื่อผู้ใช้ หรือ รหัสผิด"})
         }
         const token = jwt.sign({username},process.env.JWT_SECRET,{expiresIn:'1d'})
         return res.json({token,username})
