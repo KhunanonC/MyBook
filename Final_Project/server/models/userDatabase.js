@@ -8,8 +8,7 @@ const userinfo = mongoose.Schema({
     },
     telephone:{
         type:Number,
-        require:true,
-        minlength: 10
+        require:true
     },
     email:{
         type:String,
@@ -18,8 +17,7 @@ const userinfo = mongoose.Schema({
     },
     password:{
         type:String,
-        require:true,
-        minlength: 8
+        require:true
     },
     confirmpassword:{
         type:String,

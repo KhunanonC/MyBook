@@ -1,6 +1,5 @@
 const userDatabase = require("../models/userDatabase");
 const emailValidator = require("email-validator");
-const { default: mongoose } = require("mongoose");
 
 //บันทึกข้อมูล user SignUp
 exports.signUp=(req,res)=>{
@@ -19,8 +18,17 @@ exports.signUp=(req,res)=>{
             return res.status(400).json({error:"กรุณายืนยันรหัสผ่าน"})
     }
 
+    const regex = /^[0]\d{9}$/;
+    if(regex.test(telephone) == false){
+        return res.status(400).json({error:"หมายเลขโทรศัพท์ไม่ถูกต้อง"})
+    }
+
     if(emailValidator.validate(email) == false){
         return res.status(400).json({error:"รูปแบบอีเมลไม่ถูกต้อง"})
+    }
+
+    if(password.length < 8){
+        return res.status(400).json({error:"รหัสผ่านต้องมีจำนวนอย่างน้อย 8 ตัว"})
     }
 
     if(confirmpassword != password){
