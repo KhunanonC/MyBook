@@ -1,7 +1,7 @@
 import './SignIn.css'
 import { useState } from "react";
 import {Link} from "react-router-dom";
-// import SignUp from './components/Page/FormComponent';
+
 
 const SignIn =()=>{
 //------State InitPart
@@ -57,12 +57,12 @@ const SignIn =()=>{
                     <input type="password" placeholder="กรุณากรอกรหัสผ่าน" value={password} onChange={(e)=>setPassword(e.target.value)} style={{borderRightColor:passwordColor}}/>
                     <small>{errorPassword}</small>
                 </div>
-                <div className="check">
+                {/* <div className="check">
                     <input type="checkbox"/> 
                     <label for=""> 
                         <p>จำฉันไว้</p>
                     </label>
-                </div>
+                </div> */}
                 {/* <a href="#">ลืมรหัสผ่าน</a> */}
                 <button type="submit">เข้าสู่ระบบ</button>
            </form> 

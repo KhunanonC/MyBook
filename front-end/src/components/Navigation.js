@@ -45,27 +45,6 @@ const Navigation=()=>{
                             </li>
                         )
                     })}
-
-                    {/* <li className="menu-txt">
-                        <Link to="#">
-                            <HiOutlineHome/><span>Home</span>
-                        </Link>
-                    </li>
-                    <li className="menu-txt">
-                        <Link to="#">
-                            <BiCategory/><span>Collection</span>
-                        </Link>
-                    </li>
-                    <li className="menu-txt">
-                        <Link to="#">
-                            <TbShoppingCartDiscount/><span>Promotion</span>
-                        </Link>
-                    </li>
-                    <li className="menu-txt">
-                        <Link to="#">
-                            <HiOutlineChatAlt/><span>Chat</span>
-                        </Link>
-                    </li> */}
                 </ul>
             </nav>
         </aside>

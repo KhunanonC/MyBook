@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Taviraj&display=swap");
+*{
+    margin: 0; /* self-adding*/
+    padding: 0; /* self-adding*/
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family:"Noto Sans Thai", sans-serif ;
+}
+.banner-top{
+    display: flex;
+}
+.banner-top p{
+    color: orange;
+    font-size: 45px;
+}
+.post-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    /* border: 2px solid red; */
+}

@@ -15,7 +15,7 @@ const MenuData =[
     // },
     {
         title:"Home",
-        path:'/home',
+        path:'/',
         icon:<HiOutlineHome/>
     },
     {

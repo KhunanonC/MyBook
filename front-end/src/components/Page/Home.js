@@ -16,8 +16,7 @@ return(
                     <h1 className="Logo-word-Book">Book</h1>
                 </div>
                 <div className="header-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ab sit aspernatur?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta libero reiciendis.
+                    <p>
                     </p>
                 </div>
            </section>
