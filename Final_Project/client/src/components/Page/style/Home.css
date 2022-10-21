@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Taviraj&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+.container-Home {
+  display: flex;
+  min-width: 1110px;
+  margin: 0 auto;
+}
+img{
+  height: 600px;
+  /* background-image: url(../pic/manybook.png); */
+  background-size: 450px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.header-info{
+  display: inline-block;
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+}
+.middle-info{
+  margin-top: 200px;
+  /* border: 2px solid red; */
+}
+.Logo-word-My{
+  font-size: 55px;
+  color:orange;
+}
+.Logo-word-Book{
+  font-size: 55px;
+  color:blue;
+  margin-top: -25px;
+
+}
+
