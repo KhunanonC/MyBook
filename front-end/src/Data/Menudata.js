@@ -17,11 +17,6 @@ const MenuData =[
         title:"Book Seller",
         path:'/sell-book',
         icon:<TbShoppingCartDiscount/>
-    },
-    {
-        title:"Chatbook",
-        path:'/chatbook',
-        icon:<HiOutlineChatAlt/>
     }
 ]
 export default MenuData
