@@ -1,6 +1,6 @@
 import React from "react"
 import './style/Chatbook.css';
-const Chatbook=()=>{ 
+const Chatbook=(e)=>{ 
 return(
     <div>
         <span className="banner-top">

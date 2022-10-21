@@ -6,7 +6,7 @@ import book3 from '../../pic/BookSildeShow/book3.jpg';
 import book4 from '../../pic/BookSildeShow/book4.jpg';
 import book5 from '../../pic/BookSildeShow/book5.jpg';
 
-const Collection=()=>{ 
+const Collection=(e)=>{ 
 return(
     <div className="container-collection">
         <div className="top-slide-show"> 

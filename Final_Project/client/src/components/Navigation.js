@@ -3,9 +3,9 @@ import { useState } from "react";
 import "./Navigation.css"
 import MenuData from "../Data/Menudata";
 import { GoThreeBars } from "react-icons/go";
-import { HiOutlineHome,HiOutlineChatAlt } from "react-icons/hi";
-import { TbShoppingCartDiscount } from "react-icons/tb";
-import { BiCategory,BiWindowClose } from "react-icons/bi";
+// import { HiOutlineHome,HiOutlineChatAlt } from "react-icons/hi";
+// import { TbShoppingCartDiscount } from "react-icons/tb";
+import { BiWindowClose } from "react-icons/bi";
 
 
 const Navigation=()=>{
@@ -18,6 +18,17 @@ const Navigation=()=>{
                     <Link to="#" className='manu-bar'> {/*The onclick event occurs when the user clicks on an element.*/}
                         <GoThreeBars onClick={toggleMenu}/>
                     </Link>
+                    <div className="menu-bar-header">
+                        <div className="func-component-header">
+                            <Link to="/">Mybook</Link>
+                            <Link to="/collection" >Collection</Link>
+                            <Link to="/sell-book">BooK seller</Link>   
+                        </div>
+                        <div className="sign-component-header">
+                            <Link to="/sign-in" className="header-sign-in">Sign In</Link>
+                            <Link to="/sign-up" className="header-sign-up">Sign Up</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
             <nav className={showMenu ? "nav-menu active":"nav-menu" }>  {/*Condition coding---keyword(Ternary operator) */}
