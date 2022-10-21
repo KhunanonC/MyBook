@@ -11,9 +11,10 @@ exports.logIn=(req,res)=>{
         case !password:
             return res.status(400).json({error:"กรุณากรอกรหัสผ่าน"})
     }
+    
     userDatabase.find({username,password},(err,blog)=>{
         if(!blog[0]){
-            return res.status(400).json({error:"ชื่อผู้ใช้ หรือ รหัสผิด"})
+            return res.status(400).json({error:"ชื่อผู้ใช้ หรือ รหัสไม่ถูกต้อง"})
         }
         const token = jwt.sign({username},process.env.JWT_SECRET,{expiresIn:'1d'})
         return res.json({token,username})
