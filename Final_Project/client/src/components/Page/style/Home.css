@@ -12,7 +12,6 @@
 }
 img{
   height: 600px;
-  /* background-image: url(../pic/manybook.png); */
   background-size: 450px;
   background-repeat: no-repeat;
   background-position: left;
@@ -33,7 +32,7 @@ img{
 }
 .Logo-word-Book{
   font-size: 55px;
-  color:blue;
+  color:#0921a3;
   margin-top: -25px;
 
 }

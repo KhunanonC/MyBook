@@ -1,6 +1,7 @@
 import React from "react"
 import './style/Home.css';
 import manybook from '../../pic/manybook.png';
+import Footer from './Footer';
 
 const Home=(e)=>{ 
 return(
@@ -22,7 +23,7 @@ return(
            </section>
         </div> 
         </header>
-        <hr></hr>
+            <Footer/>
     </div>
     )
 }
