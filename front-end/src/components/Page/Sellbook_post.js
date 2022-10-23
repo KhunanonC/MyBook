@@ -1,12 +1,55 @@
+import React,{useState} from 'react';
 import './style/Sellbook_post.css'
+
 const Sellbook_post=()=>{
+    //init state
+    const [imgPreview, setImgPreview] = useState(null);
+    const [error, setError] = useState(false);
+  
+    const handleImageChange = (e) => {
+      setError(false);
+      const selected = e.target.files[0];
+      const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/jpg"];
+      if (selected && ALLOWED_TYPES.includes(selected.type)) {
+        let reader = new FileReader();
+        reader.onloadend = () => {
+          setImgPreview(reader.result);
+        };
+        reader.readAsDataURL(selected);
+      } else {
+        setError(true);
+      }
+    };
     return(
         <div className='container-sellbook-post'>
             <h1>ยินดีต้อนรับสู่ Book Seller</h1>
             <div className='post-sellbook-container'>
-                 <div className='photo-block'>
-                    <h1>This is picture</h1>
-                 </div>
+                <div className='photo-block-container'> {/*for img preview */}
+                    {error && <p className='errorMsg'> File not supported </p>}
+                    <div 
+                        className='ImgPreview'
+                        style={{
+                            background: imgPreview ? 
+                            `url("${imgPreview}") no-repeat center/cover`
+                            : "#F6F6F6"
+                        }}  
+                    >
+                        {!imgPreview && (
+                            <>
+                                <p> โปรดเพิ่มรูปภาพ</p>
+                                <label htmlFor='fileUpload' className='customFileUpload'>
+                                    เลือกไฟล์
+                                </label>
+                                <input type="file" id='fileUpload' onChange={handleImageChange}/>
+                                <span>( jpg, jpeg หรือ png )</span>
+                            </>
+                        )}
+                        <div className='btn'>
+                            {imgPreview && 
+                            (<button className='btn-remove' onClick={() =>setImgPreview(null)}> ลบรูปภาพ</button>)}
+                        </div>
+                    </div>
+                </div>
                  <form className ="" >
                     <div className="form-control-sellbook">
                         <label>ชื่อหนังสือ</label>
@@ -39,4 +82,4 @@ const Sellbook_post=()=>{
         </div>
     )
 }
-export default Sellbook_post
+export default Sellbook_post;
