@@ -22,7 +22,7 @@ const Sellbook_post=()=>{
     };
     return(
         <div className='container-sellbook-post'>
-            <h1>ยินดีต้อนรับสู่ Book Seller</h1>
+            <h1>ยินดีต้อนรับสู่ SongTor</h1>
             <div className='post-sellbook-container'>
                 <div className='photo-block-container'> {/*for img preview */}
                     {error && <p className='errorMsg'> File not supported </p>}

@@ -14,7 +14,7 @@ const MenuData =[
         icon:<BiCategory/>
     },
     {
-        title:"Book Seller",
+        title:"SongTor",
         path:'/sell-book',
         icon:<TbShoppingCartDiscount/>
     }

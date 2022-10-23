@@ -10,11 +10,13 @@
   min-width: 1110px;
   margin: 0 auto;
 }
-img{
-  height: 600px;
-  background-size: 450px;
+
+.pic-mid{
+  height: 36.8rem;
+  background-size: 40rem;
   background-repeat: no-repeat;
   background-position: left;
+  margin: 1rem;
 }
 .header-info{
   display: inline-block;

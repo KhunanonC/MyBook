@@ -9,7 +9,7 @@ return(
         <header>
         <div className="container-Home">
            <div>
-                <img  src={manybook} alt="Logo"/>
+                <img className="pic-mid" src={manybook} alt="Logo"/>
            </div>
             <section className="middle-info">
                 <div className="Logo-mid">

@@ -6,7 +6,7 @@ return(
     <div className="container-sellbook">
         <div className="top-container">
             <div className="top-container-info-left-what">
-                <h1>อะไรคือ Book Seller?</h1>
+                <h1>อะไรคือ SongTor?</h1>
                 <p>รองเท้าแตะจากการร่วมงานระหว่าง adidas และ KANYE WEST โดยตัวรองเท้าจะผลิตจากวัสดุ EVA น้ำหนักเบาที่สวมใส่สบายและรองรับแรงกระแทกได้อย่างดีเยี่ยม ในส่วนพื้นด้านนอกมีการะเซาะร่องเพื่อเพิ่มความยืดหยุ่นและการยึดเกาะในการสวมใส่ โดยจะมาในเฉดสี
                 UNDERCOVER's Jun Takahashi redefines the original hoops look for the future. With utilitarian details like its water-resistant GORE-TEX sleeve and supportive plastic heel piece, it brings new meaning to nothin’-but-net style.
                 รองเท้าแตะจากการร่วมงานระหว่าง adidas และ KANYE WEST โดยตัวรองเท้าจะผลิตจากวัสดุ EVA น้ำหนักเบาที่สวมใส่สบายและรองรับแรงกระแทกได้อย่างดีเยี่ยม ในส่วนพื้นด้านนอกมีการะเซาะร่องเพื่อเพิ่มความยืดหยุ่นและการยึดเกาะในการสวมใส่ โดยจะมาในเฉดสี
@@ -21,14 +21,14 @@ return(
             </div>
             <div className="top-container-info-right">
                 <div className="top-container-info-why">
-                    <h1>ทำไมต้อง Book Seller?</h1>
+                    <h1>ทำไมต้อง SongTor?</h1>
                     <p>รองเท้าแตะจากการร่วมงานระหว่าง adidas และ KANYE WEST โดยตัวรองเท้าจะผลิตจากวัสดุ EVA น้ำหนักเบาที่สวมใส่สบายและรองรับแรงกระแทกได้อย่างดีเยี่ยม ในส่วนพื้นด้านนอกมีการะเซาะร่องเพื่อเพิ่มความยืดหยุ่นและการยึดเกาะในการสวมใส่ โดยจะมาในเฉดสี
                     รองเท้าแตะจากการร่วมงานระหว่าง adidas และ KANYE WEST โดยตัวรองเท้าจะผลิตจากวัสดุ EVA น้ำหนักเบาที่สวมใส่สบายและรองรับแรงกระแทกได้อย่างดีเยี่ยม ในส่วนพื้นด้านนอกมีการะเซาะร่องเพื่อเพิ่มความยืดหยุ่นและการยึดเกาะในการสวมใส่ โดยจะมาในเฉดสี
                     UNDERCOVER's Jun Takahashi redefines the original hoops look for the future. With utilitarian details like its water-resistant GORE-TEX sleeve and supportive plastic heel piece, it brings new meaning to nothin’-but-net style.
                     </p>
                 </div>
                 <div className="top-container-info-howto">
-                    <h1>แนะนำการใช้งาน Book Seller</h1>
+                    <h1>แนะนำการใช้งาน SongTor</h1>
                     <p>รองเท้าแตะจากการร่วมงานระหว่าง adidas และ KANYE WEST โดยตัวรองเท้าจะผลิตจากวัสดุ EVA น้ำหนักเบาที่สวมใส่สบายและรองรับแรงกระแทกได้อย่างดีเยี่ยม ในส่วนพื้นด้านนอกมีการะเซาะร่องเพื่อเพิ่มความยืดหยุ่นและการยึดเกาะในการสวมใส่ โดยจะมาในเฉดสี
                     รองเท้าแตะจากการร่วมงานระหว่าง adidas และ KANYE WEST โดยตัวรองเท้าจะผลิตจากวัสดุ EVA น้ำหนักเบาที่สวมใส่สบายและรองรับแรงกระแทกได้อย่างดีเยี่ยม ในส่วนพื้นด้านนอกมีการะเซาะร่องเพื่อเพิ่มความยืดหยุ่นและการยึดเกาะในการสวมใส่ โดยจะมาในเฉดสี
                     UNDERCOVER's Jun Takahashi redefines the original hoops look for the future. With utilitarian details like its water-resistant GORE-TEX sleeve and supportive plastic heel piece, it brings new meaning to nothin’-but-net style.
