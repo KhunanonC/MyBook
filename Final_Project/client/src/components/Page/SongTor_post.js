@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import './style/Sellbook_post.css'
+import './style/SongTor_post.css'
 
 const Sellbook_post=()=>{
     //init state

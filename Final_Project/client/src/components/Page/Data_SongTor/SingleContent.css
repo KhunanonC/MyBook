@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Taviraj&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+.btn-accd{
+   background: transparent; 
+   border: transparent;
+   width: 2rem;
+   height: 2rem;
+   background: #e9e6eb;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: blue;
+   border-radius: 50%;
+   cursor: pointer;
+   margin-left: 1rem;
+   align-self: center;
+   min-width: 2rem;
+}
+.content-accd{
+    padding: 1rem 1.5rem;
+    border: 2px solid #eae6eb;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    height: 6.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0,0, 0.1);
+}
+.content-accd header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

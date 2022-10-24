@@ -3,8 +3,6 @@ import { useState } from "react";
 import "./Navigation.css"
 import MenuData from "../Data_Navidation/Menudata";
 import { GoThreeBars } from "react-icons/go";
-// import { HiOutlineHome,HiOutlineChatAlt } from "react-icons/hi";
-// import { TbShoppingCartDiscount } from "react-icons/tb";
 import { BiWindowClose } from "react-icons/bi";
 
 
