@@ -16,14 +16,15 @@
   background-size: 40rem;
   background-repeat: no-repeat;
   background-position: left;
-  margin: 1rem;
+  margin: 0.875rem;
+  /* border: 2px solid red;  */
 }
-.header-info{
+/* .header-info{
   display: inline-block;
   padding: 100px;
   justify-content: center;
   align-items: center;
-}
+} */
 .middle-info{
   margin-top: 200px;
   /* border: 2px solid red; */
@@ -36,6 +37,5 @@
   font-size: 55px;
   color:#0921a3;
   margin-top: -25px;
-
 }
 

@@ -1,67 +1,75 @@
-import React from "react"
-import './style/Collection.css'
-import book1 from '../../pic/BookSildeShow/book1.jpg';
-import book2 from '../../pic/BookSildeShow/book2.jpg';
-import book3 from '../../pic/BookSildeShow/book3.jpg';
-import book4 from '../../pic/BookSildeShow/book4.jpg';
-import book5 from '../../pic/BookSildeShow/book5.jpg';
+import {useState,useEffect} from "react";
+import './style/Collection.css';
 
-const Collection=(e)=>{ 
-return(
-    <div className="container-collection">
-        {/* book type list */}
-        <div className="lst-type-book-box">
-            <h1>หมวดหมู่</h1>
-            <div className="lst-type-book">
-                <div>
-                    <h2>ความรู้</h2>
-                </div>
-                <div>
-                    <h2>การเงิน</h2>
-                </div>
-                <div>
-                    <h2>นิยาย</h2>   
-                </div>
-                <div>
-                    <h2>การ์ตูน</h2> 
+const Collection=()=>{ 
+    //state for get book info
+    const [Countries,setCountries]=useState([]) 
+    //state for searching
+    const [Word,setWord]=useState("")
+    //filter for searching
+    const[DataFilter]= useState(["name","capital"]) //use 2 condition to find
+    // this is detector form link.
+    useEffect(()=>{
+        fetch("https://restcountries.com/v2/all")
+        .then(res=>res.json())
+        .then(data=>{
+            setCountries(data)
+        })
+    },[])
+
+    const searchCountries =(Countries)=>{
+        return Countries.filter((item)=>{
+            return DataFilter.some((filter)=>{
+                if(item[filter]){
+                    return (item[filter].toString().toLowerCase().indexOf(Word.toLowerCase())>-1) //>-1 mean we found
+                }
+            })
+        })
+    }
+    return(
+        <div className="container-collection">
+            <div className="search-container">
+                <div className="search-box">
+                    <h1>Find Your Book of Choice</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam beatae 
+                        sapiente quibusdam consequatur perspiciatis facere laboriosam non nesciunt 
+                        at id repudiandae, modi iste? Eligendi, rerum!
+                    </p>
+                    <label htmlFor="search-form">
+                        <input type="text" 
+                        className="search-input" 
+                        placeholder="Find your book"
+                        value={Word}
+                        onChange={(e)=>setWord(e.target.value)}
+                        />
+                    </label>
                 </div>
             </div>
+            <ul className="row">
+            {searchCountries(Countries).map((item,index)=>{ //cearte
+                return (
+                    <li key={index}>
+                        <div className="card-info">
+                            <div className="card-info-title">
+                                <img src={item.flag} alt={item.name}/>
+                            </div>
+                            <div className="card-info-body">
+                                <div className="card-description">
+                                    <h2>{item.name}</h2>
+                                    <ol className="card-list">
+                                        <li>Region :<span>{item.region}</span></li>
+                                        <li>Capital :<span>{item.capital}</span></li>
+                                        <li>Area :<span>{item.area}</span></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div> 
+                    </li> 
+                )
+            })}
+            </ul>
         </div>
-        {/* slide show */}
-        <div className="top-slide-show"> 
-           <div className="slidershow middle">
-                <div className="slides">
-                    <input type="radio" name="r" id="r1" cheacked/>
-                    <input type="radio" name="r" id="r2"/>
-                    <input type="radio" name="r" id="r3"/>
-                    <input type="radio" name="r" id="r4"/>
-                    <input type="radio" name="r" id="r5"/>
-                    <div className="slide s1">
-                        <img src={book1} alt="book1"/>
-                    </div> 
-                    <div className="slide s2">
-                        <img src={book2} alt="book2"/>
-                    </div> 
-                    <div className="slide s3">
-                        <img src={book3} alt="book3"/>
-                    </div> 
-                    <div className="slide s4">
-                        <img src={book4} alt="book4"/>
-                    </div> 
-                    <div className="slide s5">
-                        <img src={book5} alt="book5"/>
-                    </div> 
-                </div>
-                <div className="navigation">
-                    <label for="r1" className="bar"></label>
-                    <label for="r2" className="bar"></label> 
-                    <label for="r3" className="bar"></label> 
-                    <label for="r4" className="bar"></label> 
-                    <label for="r5" className="bar"></label> 
-                </div>
-           </div> 
-        </div>
-    </div>
     )
 }
-export default Collection
+export default Collection 
