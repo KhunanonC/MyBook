@@ -1,12 +1,13 @@
-import {Link} from "react-router-dom";
+import {Link,withRouter} from "react-router-dom";
 import { useState } from "react";
 import "./Navigation.css"
 import MenuData from "../Data_Navidation/Menudata";
 import { GoThreeBars } from "react-icons/go";
 import { BiWindowClose } from "react-icons/bi";
+import {getUser,logout} from "../services/authorize";
 
 
-const Navigation=()=>{
+const Navigation=({history})=>{
     const [showMenu,setShowMenu]=useState(false)
     const toggleMenu =()=>setShowMenu(!showMenu) //Change the bool when click the GoThreeBars Logo
     return(
@@ -23,7 +24,13 @@ const Navigation=()=>{
                             <Link to="/sell-book">SongTor</Link>   
                         </div>
                         <div className="sign-component-header">
-                            <Link to="/sign-in" className="header-sign-in">Sign In</Link>
+                            {!getUser() && (
+                                <Link to="/sign-in" className="header-sign-in">Sign In</Link>
+                            )}
+                            {getUser() && (
+                                <button className="header-sign-out" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
+                            )}
+
                             <Link to="/sign-up" className="header-sign-up">Sign Up</Link>
                         </div>
                     </div>
@@ -32,13 +39,14 @@ const Navigation=()=>{
             <nav className={showMenu ? "nav-menu active":"nav-menu" }>  {/*Condition coding---keyword(Ternary operator) */}
                 <ul className="nav-menu-item" onClick={toggleMenu}> 
 
-                    <div className="navbar-sign"> 
-                        <Link to='/sign-in' className="navbar-sign-in">
-                            Sign In
-                        </Link>
-                        <Link to='/sign-up' className="navbar-sign-up">
-                            Sign Up
-                        </Link>    
+                    <div className="navbar-sign">
+                        {!getUser() && (
+                            <Link to='/sign-in' className="navbar-sign-in">Sign In</Link>
+                        )}
+                        {getUser() && (
+                            <button className="navbar-sign-out" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
+                        )}
+                        <Link to='/sign-up' className="navbar-sign-up">Sign Up</Link>    
                     </div>
                     <li className="navbar-toggle">
                         <Link to="#" className="manu-bar">
@@ -59,4 +67,4 @@ const Navigation=()=>{
         </aside>
     )
 }
-export default Navigation
+export default withRouter(Navigation)
