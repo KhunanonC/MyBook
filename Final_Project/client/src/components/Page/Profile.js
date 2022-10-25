@@ -1,10 +1,10 @@
 import './style/Profile.css';
 
 const Profile=()=>{ 
-return(
-    <div className="container-profile">
-        
-    </div>
+    return(
+        <div className='container'>
+
+        </div>
     )
 }
 export default Profile 
