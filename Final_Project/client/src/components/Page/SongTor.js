@@ -4,10 +4,12 @@ import {Link} from "react-router-dom";
 import './style/SongTor.css';
 import Data_Accordion from "./Data_SongTor/Data_Accordion";
 import SingleContent from "./Data_SongTor/SingleContent";
+import { getUser } from "../../services/authorize";
 
 
 const SongTor=()=>{ 
-    const [Content,setContent]=useState(Data_Accordion); 
+    const [Content,setContent]=useState(Data_Accordion);
+    const user = String(getUser()); 
 return(
     <div className="container-sellbook">
         <h1 className="header-welcome">ยินดีต้อนรับสู่ SongTor</h1>
@@ -25,7 +27,9 @@ return(
         {/* banner middle link to sell page */}
         <div className="banner-mid">
             <div className="banner-mid-welcome">
-                <h1>สวัสดีคุณ User0001</h1>
+                {getUser() && (
+                    <h1>สวัสดีคุณ {user}</h1>
+                )}
             </div>
             <div className="banner-mid-GetStart">
                 <Link to="/sell-book-post">เริ่มต้นใช้งาน</Link> 

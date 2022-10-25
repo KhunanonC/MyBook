@@ -21,21 +21,23 @@ const Navigation=({history})=>{
                         <div className="func-component-header">
                             <Link to="/">Mybook</Link>
                             <Link to="/collection" >Collection</Link>
-                            <Link to="/sell-book">SongTor</Link>   
+                            {getUser() && (
+                                <Link to="/sell-book">SongTor</Link>
+                            )}   
                         </div>
                         <div className="sign-component-header">
                             {!getUser() && (
                                 <Link to="/sign-up" className="header-sign-up">Sign Up</Link>
                             )}
                             {getUser() && (
-                                <button className="" onClick={()=>logout(()=>history.push("/profile"))}>Profile</button> //ยังไม่ได้ทำ CSS 
+                                <Link className="header-profile" onClick={()=>logout(()=>history.push("/profile"))}>Profile</Link> 
                             )}
                                 
                             {!getUser() && (
                                 <Link to="/sign-in" className="header-sign-in">Sign In</Link>
                             )}
                             {getUser() && (
-                                <button className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
+                                <Link className="header-sign-out" onClick={()=>logout(()=>history.push("/"))}>Sign Out</Link> 
                             )}
                         </div>
                     </div>
@@ -49,14 +51,14 @@ const Navigation=({history})=>{
                             <Link to='/sign-up' className="navbar-sign-up">Sign Up</Link>
                         )}
                         {getUser() && (
-                            <button className="" onClick={()=>logout(()=>history.push("/profile"))}>Profile</button> //ยังไม่ได้ทำ CSS 
+                            <Link className="" onClick={()=>logout(()=>history.push("/profile"))}>Profile</Link> //ยังไม่ได้ทำ CSS 
                         )}
 
                         {!getUser() && (
                             <Link to='/sign-in' className="navbar-sign-in">Sign In</Link>
                         )}
                         {getUser() && (
-                            <button className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
+                            <Link className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</Link> //ยังไม่ได้ทำ CSS 
                         )}    
                     </div>
                     <li className="navbar-toggle">

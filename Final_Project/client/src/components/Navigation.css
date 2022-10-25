@@ -36,7 +36,7 @@
 /* .sign-component-header{
     border:2px solid red;
 } */
-.header-sign-in{
+.header-sign-in,.header-sign-out{
     width: 250px;
     height: 26px;
     text-align: center;
@@ -53,7 +53,7 @@
 .sign-component-header a {
     color: black;
 }
-.header-sign-up{
+.header-sign-up,.header-profile{
     width: 250px;
     height: 26px;
     text-align: center;
