@@ -7,6 +7,7 @@ import Collection from './components/Page/Collection';
 import SongTor from './components/Page/SongTor';
 import SongTor_post from "./components/Page/SongTor_post";
 import Footer from './components/Page/Footer';
+import Profile from './components/Page/Profile';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/sell-book" exact component={SongTor}/>
           <Route path="/footer" exact component={Footer}/>
           <Route path="/sell-book-post" exact component={SongTor_post}/>
+          <Route path="/profile" exact component={Profile}/>
         </Switch>
       </BrowserRouter>
     </div>
