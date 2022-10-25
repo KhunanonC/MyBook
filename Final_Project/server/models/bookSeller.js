@@ -1,6 +1,10 @@
 const mongoose = require("mongoose")
 
 const bookinfo = mongoose.Schema({
+    user:{
+        type:String,
+        require:true
+    },
     bookname:{
         type:String,
         require:true

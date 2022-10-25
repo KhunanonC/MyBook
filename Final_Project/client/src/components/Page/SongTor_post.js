@@ -1,7 +1,49 @@
 import React,{useState} from 'react';
-import './style/SongTor_post.css'
+import './style/SongTor_post.css';
+import {getUser,getToken} from "../../services/authorize";
+import {Link,useHistory} from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const Sellbook_post=()=>{
+    const [state,setState] = useState({
+        user:"",
+        bookname:"",
+        price:"",
+        details:"",
+        contact:""
+      })
+      const {bookname,price,details,contact} = state
+      const user = String(getUser())
+  
+      const history = useHistory();
+  
+      //กำหนดค่าให้กับ state
+      const inputValue=name=>event=>{
+        setState({...state,[name]:event.target.value});
+      }
+  
+      const submitForm=(e)=>{
+        e.preventDefault();
+        console.log("API URL = ",process.env.REACT_APP_API)
+        axios
+        .post(`${process.env.REACT_APP_API}/bookseller`,
+        {user,bookname,price,details,contact},
+        {
+          headers:{
+            authorization:`Bearer ${getToken()}`
+          }
+        })
+        .then(async(response)=>{
+          await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
+          setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
+          history.push("/profile")
+        })
+        .catch(err=>{
+          Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+        })
+      }
+
     //init state
     const [imgPreview, setImgPreview] = useState(null);
     const [error, setError] = useState(false);
@@ -50,31 +92,22 @@ const Sellbook_post=()=>{
                         </div>
                     </div>
                 </div>
-                 <form className ="" >
+                 <form className ="" onSubmit={submitForm}>
                     <div className="form-control-sellbook">
                         <label>ชื่อหนังสือ</label>
-                        <input type="text" placeholder="กรุณากรอกชื่อหนังสือ" />
+                        <input type="text" placeholder="กรุณากรอกชื่อหนังสือ" value={bookname} onChange={inputValue("bookname")}/>
                     </div>
                     <div className="form-control-sellbook">
                         <label>ราคา</label>
-                        <input type="text" placeholder="กรุณากรอกราคา" />
+                        <input type="text" placeholder="กรุณากรอกราคา" value={price} onChange={inputValue("price")}/>
                     </div>
                     <div className="form-control-sellbook">
                         <label>รายละเอียด</label>
-                        <input type="text" placeholder="กรุณากรอกรายละเอียดหนังสือ" />
+                        <input type="text" placeholder="กรุณากรอกรายละเอียดหนังสือ" value={details} onChange={inputValue("details")}/>
                     </div>
                     <div className="form-control-sellbook">
                         <label>ช่องทางการติดต่อ</label>
-                        <input type="text" placeholder="กรุณากรอกช่องทางการติดต่อ" />
-                    </div>
-                    <div>
-                        <label for="book-type">ประเภทหนังสือ</label>
-                        <select name="book-type" id="book-type">
-                            <option value="money">การเงิน</option>
-                            <option value="knowledge">ความรู้</option>
-                            <option value="novel">นิยาย</option>
-                            <option value="cartoon">การ์ตูน</option>
-                        </select>
+                        <input type="text" placeholder="กรุณากรอกช่องทางการติดต่อ" value={contact} onChange={inputValue("contact")}/>
                     </div>
                     <button className='sign-in-btn' type="submit">บันทึกข้อมูล</button>
                 </form>  

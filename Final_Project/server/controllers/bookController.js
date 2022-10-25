@@ -2,7 +2,7 @@ const bookSeller = require("../models/bookSeller");
 
 //บันทึกข้อมูลหนังสือลงใน data base
 exports.bookDetails=(req,res)=>{
-    const {bookname,price,details,contact} = req.body
+    const {user,bookname,price,details,contact} = req.body
 
     switch (true) {
         case !bookname:
@@ -15,7 +15,7 @@ exports.bookDetails=(req,res)=>{
             return res.status(400).json({error:"กรุณากรอกช่องทางการติดต่อ"})
     }
 
-    bookSeller.create({bookname,price,details,contact},(err,blog)=>{
+    bookSeller.create({user,bookname,price,details,contact},(err,blog)=>{
         if(err){
             return res.status(400).json({error:"กรุณาใส่เป็นตัวเลข"})
         }
