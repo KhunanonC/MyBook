@@ -10,18 +10,21 @@
   min-width: 1110px;
   margin: 0 auto;
 }
-img{
-  height: 600px;
-  background-size: 450px;
+
+.pic-mid{
+  height: 36.8rem;
+  background-size: 40rem;
   background-repeat: no-repeat;
   background-position: left;
+  margin: 0.875rem;
+  /* border: 2px solid red;  */
 }
-.header-info{
+/* .header-info{
   display: inline-block;
   padding: 100px;
   justify-content: center;
   align-items: center;
-}
+} */
 .middle-info{
   margin-top: 200px;
   /* border: 2px solid red; */
@@ -34,6 +37,5 @@ img{
   font-size: 55px;
   color:#0921a3;
   margin-top: -25px;
-
 }
 

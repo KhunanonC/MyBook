@@ -1,10 +1,8 @@
 import {Link} from "react-router-dom";
 import { useState } from "react";
 import "./Navigation.css"
-import MenuData from "../Data/Menudata";
+import MenuData from "../Data_Navidation/Menudata";
 import { GoThreeBars } from "react-icons/go";
-// import { HiOutlineHome,HiOutlineChatAlt } from "react-icons/hi";
-// import { TbShoppingCartDiscount } from "react-icons/tb";
 import { BiWindowClose } from "react-icons/bi";
 
 
@@ -22,7 +20,7 @@ const Navigation=()=>{
                         <div className="func-component-header">
                             <Link to="/">Mybook</Link>
                             <Link to="/collection" >Collection</Link>
-                            <Link to="/sell-book">BooK seller</Link>   
+                            <Link to="/sell-book">SongTor</Link>   
                         </div>
                         <div className="sign-component-header">
                             <Link to="/sign-in" className="header-sign-in">Sign In</Link>

@@ -28,14 +28,14 @@ const Navigation=({history})=>{
                                 <Link to="/sign-up" className="header-sign-up">Sign Up</Link>
                             )}
                             {getUser() && (
-                                <button className="" onClick={()=>logout(()=>history.push("/profile"))}>Profile</button> //ยังไม่ได้ทำ CSS 
+                                <button className="header-profile" onClick={()=>logout(()=>history.push("/profile"))}>Profile</button> //ยังไม่ได้ทำ CSS 
                             )}
                                 
                             {!getUser() && (
                                 <Link to="/sign-in" className="header-sign-in">Sign In</Link>
                             )}
                             {getUser() && (
-                                <button className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
+                                <button className="header-sign-out" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
                             )}
                         </div>
                     </div>
@@ -49,14 +49,14 @@ const Navigation=({history})=>{
                             <Link to='/sign-up' className="navbar-sign-up">Sign Up</Link>
                         )}
                         {getUser() && (
-                            <button className="" onClick={()=>logout(()=>history.push("/profile"))}>Profile</button> //ยังไม่ได้ทำ CSS 
+                            <button className="navbar-profile" onClick={()=>logout(()=>history.push("/profile"))}>Profile</button> //ยังไม่ได้ทำ CSS 
                         )}
 
                         {!getUser() && (
                             <Link to='/sign-in' className="navbar-sign-in">Sign In</Link>
                         )}
                         {getUser() && (
-                            <button className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
+                            <button className="navbar-sign-out" onClick={()=>logout(()=>history.push("/"))}>Sign Out</button> //ยังไม่ได้ทำ CSS 
                         )}    
                     </div>
                     <li className="navbar-toggle">

@@ -50,11 +50,7 @@ const SignIn =()=>{
                     </div>
                     <button className='sign-in-btn' type="submit">เข้าสู่ระบบ</button>
                 </form>   
-            </div>
-                <hr></hr>
-            <div>
-                <h1>Footer Component</h1>
-            </div>    
+            </div> 
         </div>
     )
 }
