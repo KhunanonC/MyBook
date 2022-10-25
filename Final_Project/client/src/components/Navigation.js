@@ -30,7 +30,7 @@ const Navigation=({history})=>{
                                 <Link to="/sign-up" className="header-sign-up">Sign Up</Link>
                             )}
                             {getUser() && (
-                                <Link className="header-profile" onClick={()=>logout(()=>history.push("/profile"))}>Profile</Link> 
+                                <Link to='/profile' className="header-profile">Profile</Link> 
                             )}
                                 
                             {!getUser() && (
@@ -51,14 +51,14 @@ const Navigation=({history})=>{
                             <Link to='/sign-up' className="navbar-sign-up">Sign Up</Link>
                         )}
                         {getUser() && (
-                            <Link className="" onClick={()=>logout(()=>history.push("/profile"))}>Profile</Link> //ยังไม่ได้ทำ CSS 
+                            <Link to='/profile' className="navbar-profile">Profile</Link>
                         )}
 
                         {!getUser() && (
                             <Link to='/sign-in' className="navbar-sign-in">Sign In</Link>
                         )}
                         {getUser() && (
-                            <Link className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</Link> //ยังไม่ได้ทำ CSS 
+                            <Link className="" onClick={()=>logout(()=>history.push("/"))}>Sign Out</Link>
                         )}    
                     </div>
                     <li className="navbar-toggle">
