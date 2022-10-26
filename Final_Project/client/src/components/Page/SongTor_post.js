@@ -94,19 +94,19 @@ const Sellbook_post=()=>{
                     </div>
                 </div>
                  <form className ="" onSubmit={submitForm}>
-                    <div className="form-control-sellbook">
+                    <div className="form-control">
                         <label>ชื่อหนังสือ</label>
                         <input type="text" placeholder="กรุณากรอกชื่อหนังสือ" value={bookname} onChange={inputValue("bookname")}/>
                     </div>
-                    <div className="form-control-sellbook">
+                    <div className="form-control">
                         <label>ราคา</label>
                         <input type="text" placeholder="กรุณากรอกราคา" value={price} onChange={inputValue("price")}/>
                     </div>
-                    <div className="form-control-sellbook">
+                    <div className="form-control">
                         <label>รายละเอียด</label>
                         <input type="text" placeholder="กรุณากรอกรายละเอียดหนังสือ" value={details} onChange={inputValue("details")}/>
                     </div>
-                    <div className="form-control-sellbook">
+                    <div className="form-control">
                         <label>ช่องทางการติดต่อ</label>
                         <input type="text" placeholder="กรุณากรอกช่องทางการติดต่อ" value={contact} onChange={inputValue("contact")}/>
                     </div>

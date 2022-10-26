@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import './style/SongTor_post.css';
-import {getUser,getToken} from "../../services/authorize";
-import {Link,useHistory} from "react-router-dom";
+import {getToken} from "../../services/authorize";
+import {useHistory} from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
