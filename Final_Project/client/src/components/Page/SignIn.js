@@ -54,7 +54,7 @@ const SignIn=(props)=>{
             </div>
                 <hr></hr>
             <div>
-                <h1>Footer Component</h1>
+                <h1></h1>
             </div>    
         </div>
     )

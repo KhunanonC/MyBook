@@ -23,12 +23,12 @@ function App() {
     return (
         <div className="container p-5">
         {blog.map((blog,index)=>(
-            <div className="row" key={index} style={{borderBottom:'1px solid silver'}}>
-            <div className="col pt-3 pb-2">
-                <Link to={`/blog/${blog.slug}`}>
-                <h2>{blog.bookname}</h2>
-                </Link>
-                <div className='pt-3' dangerouslySetInnerHTML={{__html:blog.content}}/>
+            <div className="row" key={index} style={{borderBottom:'5px solid silver'}}>
+            <div className="form-control-sellbook">
+                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.bookname}}/>
+                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.price}}/>
+                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.details}}/>
+                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.contact}}/>
             </div>
             </div>
         ))}
