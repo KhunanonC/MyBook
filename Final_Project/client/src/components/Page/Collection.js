@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useState,useEffect} from "react";
-import {Link} from "react-router-dom";
+import "./style/Collection.css"
 
 //ดึงข้อมูลจาก API มาแสดงผลหน้าแรก
 function App() {
@@ -21,15 +21,30 @@ function App() {
         },[])
 
     return (
-        <div className="container p-5">
+        <div className="container-collection">
+            <h1>โพสต์ใหม่ล่าสุด</h1>
         {blog.map((blog,index)=>(
-            <div className="row" key={index} style={{borderBottom:'5px solid silver'}}>
-            <div className="form-control-sellbook">
-                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.bookname}}/>
-                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.price}}/>
-                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.details}}/>
-                <div className='form-control-sellbook' dangerouslySetInnerHTML={{__html:blog.contact}}/>
-            </div>
+            <div className="card" key={index}>
+                <div className="pic-card">
+                    <p>this is pic</p>
+                </div>
+                <div className="from-card">
+                    <div className="form-control">
+                        <h1>ชื่อหนังสือ:{blog.bookname}</h1>
+                    </div>
+                    <div className="form-control"> 
+                        <label>รายละเอียด:</label>
+                        <p>ราคา:{blog.price} </p>
+                    </div>
+                    <div className="form-control">
+                        <label>รายละเอียด:</label>
+                        <p>{blog.details} </p>
+                    </div>
+                    <div className="form-control">
+                        <label>ช่องทางการติดต่อ:</label>
+                        <p>{blog.contact}</p>
+                    </div>
+                </div>
             </div>
         ))}
         </div>
