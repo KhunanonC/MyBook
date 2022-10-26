@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './style/SongTor_post.css';
 import {getUser,getToken} from "../../services/authorize";
-import {Link,useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -62,6 +62,7 @@ const Sellbook_post=()=>{
         setError(true);
       }
     };
+
     return(
         <div className='container-sellbook-post'>
             <h1>เริ่มต้นใช้งาน SongTor</h1>

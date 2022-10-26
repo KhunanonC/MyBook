@@ -20,6 +20,11 @@ const bookinfo = mongoose.Schema({
     contact:{
         type:String,
         require:true
+    },
+    slug:{
+        type:String,
+        lowercase:true,
+        unique:true
     }
 })
 

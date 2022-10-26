@@ -1,50 +1,34 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './style/SongTor_post.css';
 import {getUser,getToken} from "../../services/authorize";
-import {useHistory} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const EditProfilePost=()=>{
+const EditProfilePost=(props)=>{
     const [state,setState] = useState({
-        user:"",
         bookname:"",
         price:"",
         details:"",
-        contact:""
-      })
-      const {bookname,price,details,contact} = state
-      const user = String(getUser())
-  
-      const history = useHistory();
-  
-      //กำหนดค่าให้กับ state
-      const inputValue=name=>event=>{
-        setState({...state,[name]:event.target.value});
-      }
-  
-      const submitForm=(e)=>{
-        e.preventDefault();
-        console.log("API URL = ",process.env.REACT_APP_API)
-        axios
-        .post(`${process.env.REACT_APP_API}/bookseller`,
-        {user,bookname,price,details,contact},
-        {
-          headers:{
-            authorization:`Bearer ${getToken()}`
-          }
-        })
-        .then(async(response)=>{
-          await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
-          setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
-          history.push("/profile")
-        })
-        .catch(err=>{
-          Swal.fire('แจ้งเตือน',err.response.data.error,'error')
-        })
-      }
+        contact:"",
+        slug:""
+    })
+    const {bookname,price,details,contact,slug} = state
 
-    //init state
+    const history = useHistory();
+
+    //ดึงข้อมูลบทความที่ต้องการแก้ไข
+    useEffect(()=>{
+      axios
+      .get(`${process.env.REACT_APP_API}/signleData/${props.match.params.slug}`)
+      .then(response=>{
+          const {bookname,price,details,contact,slug} = response.data
+          setState({...state,bookname,price,details,contact,slug})
+      })
+      .catch(err=>alert(err))
+      // eslint-disable-next-line
+    },[])
+
     const [imgPreview, setImgPreview] = useState(null);
     const [error, setError] = useState(false);
   
@@ -62,9 +46,10 @@ const EditProfilePost=()=>{
         setError(true);
       }
     };
-    return(
-        <div className='container-sellbook-post'>
-            <h1>แก้ไข Post</h1>
+
+    const showUpdate=()=>(
+      <div className='container-sellbook-post'>
+            <h1>แก้ไขโพสต์</h1>
             <div className='post-sellbook-container'>
                 <div className='photo-block-container'> {/*for img preview */}
                     {error && <p className='errorMsg'> File not supported </p>}
@@ -114,5 +99,37 @@ const EditProfilePost=()=>{
             </div>
         </div>
     )
+
+    //กำหนดค่าให้กับ state
+    const inputValue=name=>event=>{
+      setState({...state,[name]:event.target.value});
+    }
+
+    const submitForm=(e)=>{
+      e.preventDefault();
+      console.log("API URL = ",process.env.REACT_APP_API)
+      axios
+      .put(`${process.env.REACT_APP_API}/updatepost/${slug}`,{bookname,price,details,contact},
+      {
+        headers:{
+          authorization:`Bearer ${getToken()}`
+        }
+      })
+      .then(async(response)=>{
+        await Swal.fire('แจ้งเตือน',"แก้ไขข้อมูลเรียบร้อย",'success')
+        const {bookname,price,details,contact,slug} = response.data
+        setState({...state,bookname,price,details,contact,slug})
+        history.push("/profile")
+      })
+      .catch(err=>{
+        Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+      })
+    }
+
+    return (
+        <div>
+          {showUpdate()}
+        </div>
+      );
 }
 export default EditProfilePost;

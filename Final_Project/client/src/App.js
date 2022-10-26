@@ -24,7 +24,7 @@ function App() {
           <Route path="/footer" exact component={Footer}/>
           <Route path="/sell-book-post" exact component={SongTor_post}/>
           <Route path="/profile" exact component={Profile}/>
-          <Route path="/edit-post" exact component={EditProfilePost}/>
+          <Route path="/edit-post/:slug" exact component={EditProfilePost}/>
         </Switch>
       </BrowserRouter>
     </div>

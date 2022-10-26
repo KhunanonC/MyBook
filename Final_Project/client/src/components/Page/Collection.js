@@ -29,7 +29,6 @@ function App() {
                 <h2>{blog.bookname}</h2>
                 </Link>
                 <div className='pt-3' dangerouslySetInnerHTML={{__html:blog.content}}/>
-                <p className="text-muted">ผู้เขียน:{blog.username} , เผยแพร่:{new Date(blog.createdAt).toLocaleString()}</p>
             </div>
             </div>
         ))}
