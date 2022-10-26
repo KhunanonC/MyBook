@@ -1,4 +1,5 @@
 import './style/Profile.css';
+import {Link} from "react-router-dom";
 
 const Profile=()=>{ 
     return(
@@ -26,7 +27,7 @@ const Profile=()=>{
                         <p>hjhjshdjhs</p>
                     </div>
                     <div className='btn-profile'>
-                        <button className='sign-in-btn' type="submit">แก้ไขข้อมูล</button>
+                        <button className='sign-in-btn' type="submit" ><Link to="/edit-post">แก้ไขข้อมูล</Link></button>
                         <button className='sign-in-btn' type="submit">ลบข้อมูล</button> 
                     </div>
                 </form>  
