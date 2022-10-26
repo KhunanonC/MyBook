@@ -54,20 +54,24 @@ const Profile=()=>{
     }
 
     return(
-        <div className="container p-5">
+        <div className="container-profile-post">
+            <h1>โพสต์ของฉัน</h1>
         {data.map((data,index)=>(
-            <div className="row" key={index} style={{borderBottom:'1px solid silver'}}>
-            <div className="col pt-3 pb-2">
-                <h2>{data.bookname}</h2>
-                <div className='pt-3' dangerouslySetInnerHTML={{__html:data.price}}/>
-                <div className='pt-3' dangerouslySetInnerHTML={{__html:data.details}}/>
-                <div className='pt-3' dangerouslySetInnerHTML={{__html:data.contact}}/>
-                <p>ผู้เขียน:{data.user}</p>
-                <div>
-                    <Link className="btn btn-outline-success" to={`/edit-post/${data.slug}`}>แก้ไขข้อมูล</Link> &nbsp;
-                    <button className="btn btn-outline-danger" onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
+            <div className="post-profile-container" key={index}>
+                <div className='photo-block-proflie-container'>
+                    <p>This is pic</p>
                 </div>
-            </div>
+                <div className="col pt-3 pb-2">
+                    <h2>{data.bookname}</h2>
+                    <div className='pt-3' dangerouslySetInnerHTML={{__html:data.price}}/>
+                    <div className='pt-3' dangerouslySetInnerHTML={{__html:data.details}}/>
+                    <div className='pt-3' dangerouslySetInnerHTML={{__html:data.contact}}/>
+                    <p>ผู้เขียน:{data.user}</p>
+                    <div>
+                        <Link className="btn btn-outline-success" to={`/edit-post/${data.slug}`}>แก้ไขข้อมูล</Link> &nbsp;
+                        <button className="btn btn-outline-danger" onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
+                    </div>
+                </div>
             </div>
         ))}
         </div>
