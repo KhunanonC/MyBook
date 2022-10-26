@@ -58,18 +58,36 @@ const Profile=()=>{
             <h1>โพสต์ของฉัน</h1>
             {data.map((data,index)=>(
                 <div key={index} className='container-post'>
-                <br/>
-                <div>
-                    <h1>{data.bookname}</h1>
-                    <p>ราคา : {data.price} บาท</p>
-                    <p>รายละเอียด : {data.details}</p>
-                    <p>ช่องทางการติดต่อ : {data.contact}</p>
-                    <p>ผู้เขียน:{data.user}</p>
-                    <div>
-                        <Link to={`/edit-post/${data.slug}`}>แก้ไขข้อมูล</Link> &nbsp;
-                        <button onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
+                    <div className='pic-block-profile'>
+                        <p>this is book</p>
                     </div>
+                    <div>
+                    <div className="from-card-profile">
+                        <div className="form-control-profile">
+                            <h1>ชื่อหนังสือ:{data.bookname}</h1>
+                        </div>
+                        <div className="form-control-profile"> 
+                            <label>ราคา:</label>
+                            <p>{data.price} บาท</p>
+                        </div>
+                        <div className="form-control-profile">
+                            <label>รายละเอียด:</label>
+                            <p>{data.details} </p>
+                        </div>
+                        <div className="form-control-profile">
+                            <label>ช่องทางการติดต่อ:</label>
+                            <p>{data.contact}</p>
+                        </div>
+                        <div className="form-control-profile">
+                            <label>ผู้เขียน:</label>
+                            <p>{data.user}</p>
+                        </div>
                 </div>
+                        <div className='btn-component-profile'>
+                            <Link className=''  to={`/edit-post/${data.slug}`}>แก้ไขข้อมูล</Link> &nbsp;
+                            <button className='btn-profile' onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>

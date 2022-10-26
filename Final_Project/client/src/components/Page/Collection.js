@@ -33,8 +33,8 @@ function App() {
                         <h1>ชื่อหนังสือ:{blog.bookname}</h1>
                     </div>
                     <div className="form-control"> 
-                        <label>รายละเอียด:</label>
-                        <p>ราคา:{blog.price} </p>
+                        <label>ราคา:</label>
+                        <p>{blog.price} บาท</p>
                     </div>
                     <div className="form-control">
                         <label>รายละเอียด:</label>
