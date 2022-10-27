@@ -29,18 +29,18 @@ function App() {
                     <p>this is pic</p>
                 </div>
                 <div className="from-card">
-                    <div className="form-control">
+                    <div className="form-control-collection">
                         <h1>ชื่อหนังสือ:{blog.bookname}</h1>
                     </div>
-                    <div className="form-control"> 
+                    <div className="form-control-collection"> 
                         <label>ราคา:</label>
                         <p>{blog.price} บาท</p>
                     </div>
-                    <div className="form-control">
+                    <div className="form-control-collection">
                         <label>รายละเอียด:</label>
                         <p>{blog.details} </p>
                     </div>
-                    <div className="form-control">
+                    <div className="form-control-collection">
                         <label>ช่องทางการติดต่อ:</label>
                         <p>{blog.contact}</p>
                     </div>
