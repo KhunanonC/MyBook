@@ -36,9 +36,6 @@ return(
                 <Link to="/sell-book-post">เริ่มต้นใช้งาน</Link> 
             </div>
         </div>
-        {/* <div>
-            <h1>Footer Component</h1>
-        </div> */}
     </div>
     )
 }

@@ -34,5 +34,7 @@
   margin: 0.9rem;
 }
 .from-card{
+  /* display: flex;
+  flex-direction: column; */
   margin-top: -15rem;
 }
