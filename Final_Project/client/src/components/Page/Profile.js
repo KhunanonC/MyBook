@@ -59,7 +59,7 @@ const Profile=()=>{
             {data.map((data,index)=>(
                 <div key={index} className='container-post'>
                     <div className='pic-block-profile'>
-                        <p>this is book</p>
+                        <img src={data.url} alt=""  className='ImgPreview'/>
                     </div>
                     <div className='profile-block'>
                         <div className="from-card-profile">

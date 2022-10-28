@@ -21,6 +21,10 @@ const bookinfo = mongoose.Schema({
         type:String,
         require:true
     },
+    url:{
+        type:String,
+        require:true
+    },
     slug:{
         type:String,
         lowercase:true,

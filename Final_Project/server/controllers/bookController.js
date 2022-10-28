@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 
 //บันทึกข้อมูลหนังสือลงใน data base
 exports.bookDetails=(req,res)=>{
-    const {user,bookname,price,details,contact} = req.body
+    const {user,bookname,price,details,contact,url} = req.body
     let slug = slugify(bookname)
 
     if(!slug)slug=uuidv4();
@@ -18,11 +18,13 @@ exports.bookDetails=(req,res)=>{
             return res.status(400).json({error:"กรุณากรอกรายละเอียดหนังสือ"})
         case !contact:
             return res.status(400).json({error:"กรุณากรอกช่องทางการติดต่อ"})
+        case !url:
+            return res.status(400).json({error:"กรุณาใส่ URL ของรูปภาพ"})
     }
 
-    bookSeller.create({user,bookname,price,details,contact,slug},(err,blog)=>{
+    bookSeller.create({user,bookname,price,details,contact,url,slug},(err,blog)=>{
         if(err){
-            return res.status(400).json({error:"กรุณาใส่เป็นตัวเลข"})
+            return res.status(400).json({error:"กรุณาใส่ราคาเป็นตัวเลข"})
         }
         return res.json(blog)
     })

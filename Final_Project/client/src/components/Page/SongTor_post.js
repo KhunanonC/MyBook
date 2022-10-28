@@ -11,9 +11,10 @@ const Sellbook_post=()=>{
         bookname:"",
         price:"",
         details:"",
-        contact:""
+        contact:"",
+        url:""
       })
-      const {bookname,price,details,contact} = state
+      const {bookname,price,details,contact,url} = state
       const user = String(getUser())
   
       const history = useHistory();
@@ -28,7 +29,7 @@ const Sellbook_post=()=>{
         console.log("API URL = ",process.env.REACT_APP_API)
         axios
         .post(`${process.env.REACT_APP_API}/bookseller`,
-        {user,bookname,price,details,contact},
+        {user,bookname,price,details,contact,url},
         {
           headers:{
             authorization:`Bearer ${getToken()}`
@@ -69,28 +70,8 @@ const Sellbook_post=()=>{
             <div className='post-sellbook-container'>
                 <div className='photo-block-container'> {/*for img preview */}
                     {error && <p className='errorMsg'> File not supported </p>}
-                    <div 
-                        className='ImgPreview'
-                        style={{
-                            background: imgPreview ? 
-                            `url("${imgPreview}") no-repeat center/cover`
-                            : "#F6F6F6"
-                        }}  
-                    >
-                        {!imgPreview && (
-                            <>
-                                <p> โปรดเพิ่มรูปภาพ</p>
-                                <label htmlFor='fileUpload' className='customFileUpload'>
-                                    เลือกไฟล์
-                                </label>
-                                <input type="file" id='fileUpload' onChange={handleImageChange}/>
-                                <span>( jpg, jpeg หรือ png )</span>
-                            </>
-                        )}
-                        <div className='btn'>
-                            {imgPreview && 
-                            (<button className='btn-remove' onClick={() =>setImgPreview(null)}> ลบรูปภาพ</button>)}
-                        </div>
+                    <div className='ImgPreview'>
+                        <img src={url} alt=""  className='ImgPreview'/>
                     </div>
                 </div>
                  <form className ="" onSubmit={submitForm}>
@@ -109,6 +90,10 @@ const Sellbook_post=()=>{
                     <div className="form-control-sellbook">
                         <label>ช่องทางการติดต่อ</label>
                         <input type="text" placeholder="กรุณากรอกช่องทางการติดต่อ" value={contact} onChange={inputValue("contact")}/>
+                    </div>
+                    <div className="form-control-sellbook">
+                        <label>URL รูปภาพ</label>
+                        <input type="url" placeholder="กรุณากรอก URL รูปภาพ" value={url} onChange={inputValue("url")}/>
                     </div>
                     <button className='sign-in-btn' type="submit">บันทึกข้อมูล</button>
                 </form>  
