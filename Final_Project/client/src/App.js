@@ -9,6 +9,7 @@ import SongTor_post from "./components/Page/SongTor_post";
 import Footer from './components/Page/Footer';
 import Profile from './components/Page/Profile';
 import EditProfilePost from "./components/Page/EditProfilePost";
+import Fav from"./components/Page/Fav"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/sell-book-post" exact component={SongTor_post}/>
           <Route path="/profile" exact component={Profile}/>
           <Route path="/edit-post/:slug" exact component={EditProfilePost}/>
+          <Route path="/fav-book" exact component={Fav}/>
         </Switch>
       </BrowserRouter>
     </div>

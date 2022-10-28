@@ -5,7 +5,7 @@ import {useState,useEffect} from "react";
 import Swal from "sweetalert2";
 import { getUser,getToken } from "../../services/authorize";
 
-const Profile=()=>{
+const Fav=()=>{
     const [data,setData] = useState([])
     const user = String(getUser())
 
@@ -57,12 +57,13 @@ const Profile=()=>{
         <div className='container-profile'>
             <div className='header-link'>
                 <div>
-                    <Link>โพสต์ของฉัน</Link>
+                    <Link to={"/profile"}>โพสต์ของฉัน</Link>
                 </div>
                 <div>
-                   <Link to={"/fav-book"}>หนังสือที่สนใจ</Link> 
+                   <Link>หนังสือที่สนใจ</Link> 
                 </div>
             </div>
+            <h1>fav book tset</h1>
             {data.map((data,index)=>(
                 <div key={index} className='container-post'>
                     <div className='pic-block-profile'>
@@ -100,4 +101,4 @@ const Profile=()=>{
         </div>
     )
 }
-export default Profile
+export default Fav

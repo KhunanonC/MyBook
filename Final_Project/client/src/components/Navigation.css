@@ -134,4 +134,10 @@ svg{
 span{
     margin-left: 16px;
 }
- 
+/* hover */
+.func-component-header a:hover{
+    color:orange;
+}
+ .sign-component-header a:hover{
+    border: 2px solid white;
+ }

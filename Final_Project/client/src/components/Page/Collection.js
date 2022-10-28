@@ -30,19 +30,26 @@ function App() {
                 </div>
                 <div className="from-card">
                     <div className="form-control-collection">
-                        <h1>ชื่อหนังสือ:{blog.bookname}</h1>
+                        <h1>ชื่อหนังสือ :{blog.bookname}</h1>
                     </div>
                     <div className="form-control-collection"> 
-                        <label>ราคา:</label>
+                        <label>ราคา : </label>
                         <p>{blog.price} บาท</p>
                     </div>
                     <div className="form-control-collection">
-                        <label>รายละเอียด:</label>
+                        <label>รายละเอียด : </label>
                         <p>{blog.details} </p>
                     </div>
                     <div className="form-control-collection">
-                        <label>ช่องทางการติดต่อ:</label>
+                        <label>ช่องทางการติดต่อ : </label>
                         <p>{blog.contact}</p>
+                    </div>
+                    <div className="form-control-collection">
+                        <label>ผู้โพสต์ : </label>
+                        <p>{blog.user}</p>
+                    </div>
+                    <div className='btn-component-profile'>
+                        <button className='btn-profile' id="btn-collection">สนใจหนังสือ</button>
                     </div>
                 </div>
             </div>
