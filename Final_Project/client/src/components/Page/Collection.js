@@ -26,7 +26,7 @@ function App() {
         {blog.map((blog,index)=>(
             <div className="card" key={index}>
                 <div className="pic-card">
-                    <p>this is pic</p>
+                    <img src={blog.url} alt=""  className='ImgPreview'/>
                 </div>
                 <div className="from-card">
                     <div className="form-control-collection">
