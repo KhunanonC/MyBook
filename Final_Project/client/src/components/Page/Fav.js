@@ -57,10 +57,10 @@ const Fav=()=>{
         <div className='container-profile'>
             <div className='header-link'>
                 <div>
-                    <Link to={"/profile"}>โพสต์ของฉัน</Link>
+                    <Link to={"/profile"} className="target">โพสต์ของฉัน</Link>
                 </div>
                 <div>
-                   <Link>หนังสือที่สนใจ</Link> 
+                   <Link className="target">หนังสือที่สนใจ</Link> 
                 </div>
             </div>
             <h1>fav book tset</h1>

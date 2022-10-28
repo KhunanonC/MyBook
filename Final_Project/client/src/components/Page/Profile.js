@@ -57,10 +57,10 @@ const Profile=()=>{
         <div className='container-profile'>
             <div className='header-link'>
                 <div>
-                    <Link>โพสต์ของฉัน</Link>
+                    <Link className="target">โพสต์ของฉัน</Link>
                 </div>
                 <div>
-                   <Link to={"/fav-book"}>หนังสือที่สนใจ</Link> 
+                   <Link to={"/fav-book"} className="target">หนังสือที่สนใจ</Link> 
                 </div>
             </div>
             {data.map((data,index)=>(
