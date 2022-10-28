@@ -19,7 +19,7 @@ const Navigation=({history})=>{
                     </Link>
                     <div className="menu-bar-header">
                         <div className="func-component-header">
-                            <Link to="/">Mybook</Link>
+                            <Link to="/">Home</Link>
                             <Link to="/collection" >Collection</Link>
                             {getUser() && (
                                 <Link to="/sell-book">SongTor</Link>

@@ -22,7 +22,7 @@ exports.bookDetails=(req,res)=>{
 
     bookSeller.create({user,bookname,price,details,contact,slug},(err,blog)=>{
         if(err){
-            return res.status(400).json({error:"กรุณาใส่เป็นตัวเลข"})
+            return res.status(400).json({error:"กรุณาใส่ราคาเป็นตัวเลข"})
         }
         return res.json(blog)
     })
