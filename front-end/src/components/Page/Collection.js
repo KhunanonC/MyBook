@@ -30,7 +30,7 @@ const Collection=()=>{
         <div className="container-collection">
             <div className="search-container">
                 <div className="search-box">
-                    <h1>เริ่มต้นหาหนังสือของคุณ</h1>
+                    <h1>Find Your Book of Choice</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam beatae 
                         sapiente quibusdam consequatur perspiciatis facere laboriosam non nesciunt 
@@ -46,7 +46,6 @@ const Collection=()=>{
                     </label>
                 </div>
             </div>
-            <h1>Newest Book</h1>
             <ul className="row">
             {searchCountries(Countries).map((item,index)=>{ //cearte
                 return (

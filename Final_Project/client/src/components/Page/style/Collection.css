@@ -3,6 +3,35 @@
     font-family:"Noto Sans Thai", sans-serif ;
 }
 /* search things */
+
+.search-box{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 0px 10px 0px rgba(0,0,0,1);
+  -webkit-box-shadow: 1px 0px 10px 0px rgba(0,0,0,1);
+  -moz-box-shadow: 1px 0px 10px 0px rgba(0,0,0,1);
+  padding: 1rem;
+  margin: 2rem;
+  width: 43rem;
+  background-image: url("../../../pic/search_book.jpg");
+}
+.search-box  input{
+  display: block;
+  margin-bottom: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width:450px;
+  padding: 10px;
+  font-size: 16px;
+}
+.search-element{
+  margin: 0.5rem;
+}
+.search-box p{
+  font-size: 20px;
+}
+/*  */
 .container-collection{
   margin: 1.5rem;
   display: flex;

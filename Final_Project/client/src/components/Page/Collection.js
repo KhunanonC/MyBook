@@ -1,10 +1,24 @@
 import axios from "axios";
 import {useState,useEffect} from "react";
 import "./style/Collection.css"
+import { FaSearch } from "react-icons/fa";
 import Swal from "sweetalert2";
+
 
 //ดึงข้อมูลจาก API มาแสดงผลหน้าแรก
 function App() {
+    const [Word,setWord]=useState("")
+    //filter for searching
+    const[DataFilter]= useState(["bookname","user"]) //use 2 condition to find
+    const searchBook =(Book)=>{
+        return Book.filter((item)=>{
+            return DataFilter.some((filter)=>{
+                if(item[filter]){
+                    return (item[filter].toString().toLowerCase().indexOf(Word.toLowerCase())>-1) //>-1 mean we found
+                }
+            })
+        })
+    }  
     const [blog,setBlogs] = useState([])
 
     //function ดึงข้อมูลทั้งหมดมาจากฐานข้อมูล
@@ -21,31 +35,47 @@ function App() {
             fetchData()
         },[])
 
-    const submitForm=(e)=>{
-        e.preventDefault();
-        console.log("API URL = ",process.env.REACT_APP_API)
-        axios
-        .post(`${process.env.REACT_APP_API}/bookseller`,
-        {user,bookname,price,details,contact,url},
-        {
-            headers:{
-            authorization:`Bearer ${getToken()}`
-            }
-        })
-        .then(async(response)=>{
-            await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
-            setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
-            history.push("/profile")
-        })
-        .catch(err=>{
-            Swal.fire('แจ้งเตือน',err.response.data.error,'error')
-        })
-        }
+    // const submitForm=(e)=>{
+    //     e.preventDefault();
+    //     console.log("API URL = ",process.env.REACT_APP_API)
+    //     axios
+    //     .post(`${process.env.REACT_APP_API}/bookseller`,
+    //     {user,bookname,price,details,contact,url},
+    //     {
+    //         headers:{
+    //         authorization:`Bearer ${getToken()}`
+    //         }
+    //     })
+    //     .then(async(response)=>{
+    //         await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
+    //         setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
+    //         history.push("/profile")
+    //     })
+    //     .catch(err=>{
+    //         Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+    //     })
+    //     }
 
     return (
         <div className="container-collection">
+            <div className="search-box">
+                <h1 className="search-element">หาหนังสือที่คุณสนใจกันเลย!</h1>
+                <p className="search-element">
+                                 สัมผัสประสบการณ์ใหม่ด้วยกับค้นหาหนังสือที่คุณชื่นชอบ 
+                    พียงกรอกชื่อหนังสือหรือชื่อผู้โพสต์เท่านั้นคุณก็จะได้หนังสือตรงตามความต้องการของคุณ 
+                </p>
+                <FaSearch id="search-logo"/>
+                <label htmlFor="search-form" className="search-element">
+                    <input type="text" 
+                    className="search-element" 
+                    placeholder="กรอกชื่อหนังสือหรือชื่อผู้โพสต์ "
+                    value={Word}
+                    onChange={(e)=>setWord(e.target.value)}
+                    />
+                </label>
+            </div>
             <h1>โพสต์ใหม่ล่าสุด</h1>
-        {blog.map((blog,index)=>(
+        {searchBook(blog).map((blog,index)=>(
             <div className="card" key={index}>
                 <div className="pic-card">
                     <img src={blog.url} alt=""  className='ImgPreview'/>
@@ -71,7 +101,8 @@ function App() {
                         <p>{blog.user}</p>
                     </div>
                     <div className='btn-component-profile'>
-                        <form className ="" onSubmit={submitForm}>
+                        {/* <form className ="" onSubmit={submitForm}> */}
+                        <form className ="">
                             <button className='btn-profile' type="submit">สนใจหนังสือ</button>
                         </form>
                     </div>
