@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useState,useEffect} from "react";
 import "./style/Collection.css"
+import Swal from "sweetalert2";
 
 //ดึงข้อมูลจาก API มาแสดงผลหน้าแรก
 function App() {
@@ -19,6 +20,27 @@ function App() {
         useEffect(()=>{
             fetchData()
         },[])
+
+    const submitForm=(e)=>{
+        e.preventDefault();
+        console.log("API URL = ",process.env.REACT_APP_API)
+        axios
+        .post(`${process.env.REACT_APP_API}/bookseller`,
+        {user,bookname,price,details,contact,url},
+        {
+            headers:{
+            authorization:`Bearer ${getToken()}`
+            }
+        })
+        .then(async(response)=>{
+            await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
+            setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
+            history.push("/profile")
+        })
+        .catch(err=>{
+            Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+        })
+        }
 
     return (
         <div className="container-collection">
@@ -49,7 +71,9 @@ function App() {
                         <p>{blog.user}</p>
                     </div>
                     <div className='btn-component-profile'>
-                        <button className='btn-profile' id="btn-collection">สนใจหนังสือ</button>
+                        <form className ="" onSubmit={submitForm}>
+                            <button className='btn-profile' type="submit">สนใจหนังสือ</button>
+                        </form>
                     </div>
                 </div>
             </div>

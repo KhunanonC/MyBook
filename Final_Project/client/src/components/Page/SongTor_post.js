@@ -14,6 +14,7 @@ const Sellbook_post=()=>{
         contact:"",
         url:""
       })
+
       const {bookname,price,details,contact,url} = state
       const user = String(getUser())
   
@@ -45,31 +46,11 @@ const Sellbook_post=()=>{
         })
       }
 
-    //init state
-    const [imgPreview, setImgPreview] = useState(null);
-    const [error, setError] = useState(false);
-  
-    const handleImageChange = (e) => {
-      setError(false);
-      const selected = e.target.files[0];
-      const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/jpg"];
-      if (selected && ALLOWED_TYPES.includes(selected.type)) {
-        let reader = new FileReader();
-        reader.onloadend = () => {
-          setImgPreview(reader.result);
-        };
-        reader.readAsDataURL(selected);
-      } else {
-        setError(true);
-      }
-    };
-
     return(
         <div className='container-sellbook-post'>
             <h1>เริ่มต้นใช้งาน SongTor</h1>
             <div className='post-sellbook-container'>
                 <div className='photo-block-container'> {/*for img preview */}
-                    {error && <p className='errorMsg'> File not supported </p>}
                     <div className='ImgPreview'>
                         <img src={url} alt=""  className='ImgPreview'/>
                     </div>
