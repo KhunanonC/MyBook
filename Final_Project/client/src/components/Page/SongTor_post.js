@@ -29,8 +29,7 @@ const Sellbook_post=()=>{
         e.preventDefault();
         console.log("API URL = ",process.env.REACT_APP_API)
         axios
-        .post(`${process.env.REACT_APP_API}/bookseller`,
-        {user,bookname,price,details,contact,url},
+        .post(`${process.env.REACT_APP_API}/bookseller`,{user,bookname,price,details,contact,url},
         {
           headers:{
             authorization:`Bearer ${getToken()}`

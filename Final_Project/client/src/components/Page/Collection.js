@@ -3,6 +3,7 @@ import {useState,useEffect} from "react";
 import "./style/Collection.css"
 import { FaSearch } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { getToken,getUser } from "../../services/authorize";
 
 
 //ดึงข้อมูลจาก API มาแสดงผลหน้าแรก
@@ -18,7 +19,8 @@ function App() {
                 }
             })
         })
-    }  
+    }
+      
     const [blog,setBlogs] = useState([])
 
     //function ดึงข้อมูลทั้งหมดมาจากฐานข้อมูล
@@ -29,46 +31,50 @@ function App() {
             setBlogs(response.data)
         })
         .catch(err=>alert(err));
+    }
+    useEffect(()=>{
+        fetchData()
+    },[])
+//-----------------------------------------------------------------------------------------
+
+    const [state,setState] = useState({
+        userfavoritebook:""
+    })
+
+    const userfavoritebook = String(getUser())
+//----------------------------------------------------------------------------------------
+    const submitForm=(e)=>{
+        e.preventDefault();
+        console.log("API URL = ",process.env.REACT_APP_API)
+        axios
+        .post(`${process.env.REACT_APP_API}/favorite`,{userfavoritebook},
+        {
+            headers:{
+            authorization:`Bearer ${getToken()}`
+            }
+        })
+        .then(async(response)=>{
+            await Swal.fire('แจ้งเตือน',"เพิ่มในหนังสือที่สนใจเรียบร้อย",'success')
+            setState({...state,userfavoritebook:""})
+        })
+        .catch(err=>{
+            Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+        })
         }
-
-        useEffect(()=>{
-            fetchData()
-        },[])
-
-    // const submitForm=(e)=>{
-    //     e.preventDefault();
-    //     console.log("API URL = ",process.env.REACT_APP_API)
-    //     axios
-    //     .post(`${process.env.REACT_APP_API}/bookseller`,
-    //     {user,bookname,price,details,contact,url},
-    //     {
-    //         headers:{
-    //         authorization:`Bearer ${getToken()}`
-    //         }
-    //     })
-    //     .then(async(response)=>{
-    //         await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
-    //         setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
-    //         history.push("/profile")
-    //     })
-    //     .catch(err=>{
-    //         Swal.fire('แจ้งเตือน',err.response.data.error,'error')
-    //     })
-    //     }
-
+//----------------------------------------------------------------------------------------------------
     return (
         <div className="container-collection">
             <div className="search-box">
                 <h1 className="search-element">หาหนังสือที่คุณสนใจกันเลย!</h1>
                 <p className="search-element">
-                                 สัมผัสประสบการณ์ใหม่ด้วยกับค้นหาหนังสือที่คุณชื่นชอบ 
-                    พียงกรอกชื่อหนังสือหรือชื่อผู้โพสต์เท่านั้นคุณก็จะได้หนังสือตรงตามความต้องการของคุณ 
+                                 สัมผัสประสบการณ์ใหม่โดยการค้นหาหนังสือที่คุณชื่นชอบ 
+                    เพียงกรอกชื่อหนังสือหรือชื่อผู้โพสต์เท่านั้นคุณก็จะได้หนังสือตรงตามความต้องการของคุณ... 
                 </p>
                 <FaSearch id="search-logo"/>
                 <label htmlFor="search-form" className="search-element">
                     <input type="text" 
                     className="search-element" 
-                    placeholder="กรอกชื่อหนังสือหรือชื่อผู้โพสต์ "
+                    placeholder="กรอกชื่อหนังสือหรือชื่อผู้โพสต์ที่คุณต้องการค้นหา "
                     value={Word}
                     onChange={(e)=>setWord(e.target.value)}
                     />
@@ -101,9 +107,10 @@ function App() {
                         <p>{blog.user}</p>
                     </div>
                     <div className='btn-component-profile'>
-                        {/* <form className ="" onSubmit={submitForm}> */}
-                        <form className ="">
-                            <button className='btn-profile' type="submit">สนใจหนังสือ</button>
+                        <form className ="" onSubmit={submitForm}>
+                            {getUser() && (
+                                <button className='btn-profile' type="submit">สนใจหนังสือ</button> 
+                            )}
                         </form>
                     </div>
                 </div>

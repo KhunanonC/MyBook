@@ -1,10 +1,10 @@
 const mongoose = require("mongoose")
 
 const favoriteinfo = mongoose.Schema({
-    favoritebook:{
+    userfavoritebook:{
         type:String,
         require:true
     }
 })
 
-module.exports = mongoose.model("favoriteBook",favoriteinfo)
+module.exports = mongoose.model("userfavorite",favoriteinfo)

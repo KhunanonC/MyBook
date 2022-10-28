@@ -1,11 +1,11 @@
-const favoriteBook = require("../models/favoriteBook");
+const userfavorite = require("../models/favoriteBook");
 
 exports.favorite=(req,res)=>{
-    const {favoritebook} = req.body
+    const {userfavoritebook} = req.body
 
-    favoriteBook.create({favoritebook},(err,blog)=>{
+    userfavorite.create({userfavoritebook},(err,blog)=>{
         if(err){
-            return res.status(400).json({error:err})
+            return res.status(400).json({error:"ได้เพิ่มในหนังสือที่สนใจไปแล้ว"})
         }
         return res.json(blog)
     })
