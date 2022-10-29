@@ -1,9 +1,8 @@
 import React from "react"
 import './style/Home.css';
-import manybook from '../../pic/manybook.png';
-import library from '../../pic/library_bg.jpg'
 import Footer from './Footer';
 import { Link } from "react-router-dom";
+import { getUser } from "../../services/authorize";
 
 const Home=(e)=>{ 
 return(
@@ -24,7 +23,9 @@ return(
                             <h1>ให้เราเป็นมากกว่าแหล่งแลกเปลี่ยนหนังสือ</h1>
                         </div>
                         <div className="mid-info">
-                            <Link to="/sign-up" className="get-start">เริ่มต้นใช้งาน</Link>
+                            {!getUser() && (
+                                <Link to="/sign-up" className="get-start">เริ่มต้นใช้งาน</Link> 
+                            )}
                         </div>
                     </div>
             </section>
