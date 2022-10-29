@@ -38,16 +38,17 @@ function App() {
 //-----------------------------------------------------------------------------------------
 
     const [state,setState] = useState({
+        user:"",
         userfavoritebook:""
     })
 
-    const userfavoritebook = String(getUser())
+    const user = String(getUser())
+
 //----------------------------------------------------------------------------------------
-    const submitForm=(e)=>{
-        e.preventDefault();
+    const submitForm=(book)=>{
         console.log("API URL = ",process.env.REACT_APP_API)
         axios
-        .post(`${process.env.REACT_APP_API}/favorite`,{userfavoritebook},
+        .post(`${process.env.REACT_APP_API}/favorite`,{user,userfavoritebook:book},
         {
             headers:{
             authorization:`Bearer ${getToken()}`
@@ -55,12 +56,12 @@ function App() {
         })
         .then(async(response)=>{
             await Swal.fire('แจ้งเตือน',"เพิ่มในหนังสือที่สนใจเรียบร้อย",'success')
-            setState({...state,userfavoritebook:""})
+            setState({...state,user:"",userfavoritebook:""})
         })
         .catch(err=>{
             Swal.fire('แจ้งเตือน',err.response.data.error,'error')
         })
-        }
+    }
 //----------------------------------------------------------------------------------------------------
     return (
         <div className="container-collection">
@@ -107,7 +108,9 @@ function App() {
                         <p>{blog.user}</p>
                     </div>
                     <div className='btn-component-profile'>
-                        <form className ="" onSubmit={submitForm}>
+                        <form className ="" onSubmit={(e)=>{
+                            e.preventDefault()
+                            submitForm(blog.bookname)}}>
                             {getUser() && (
                                 <button className='btn-profile' type="submit">สนใจหนังสือ</button> 
                             )}

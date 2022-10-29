@@ -6,7 +6,7 @@ const { signUp } = require("../controllers/userController")
 const { bookDetails } = require("../controllers/bookController")
 const { bookCollection } = require("../controllers/collectionController")
 const { remove, getUserData, update, singleBlog } = require("../controllers/profileController")
-const { favorite } = require("../controllers/favoriteController")
+const { favorite, getUserFavorite } = require("../controllers/favoriteController")
 
 //-------------------------------------------------------------------------------------------------------
 route.post('/signup',signUp)
@@ -17,5 +17,6 @@ route.delete('/delete/:slug',remove)
 route.put('/updatepost/:slug',update)
 route.get('/signleData/:slug',singleBlog)
 route.post('/favorite',favorite)
+route.post('/getuserfavorite',getUserFavorite)
 
 module.exports=route

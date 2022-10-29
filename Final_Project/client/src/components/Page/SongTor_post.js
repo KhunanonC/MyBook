@@ -37,7 +37,7 @@ const Sellbook_post=()=>{
         })
         .then(async(response)=>{
           await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
-          setState({...state,user:"",bookname:"",price:"",details:"",contact:""})
+          setState({...state,user:"",bookname:"",price:"",details:"",contact:"",url:""})
           history.push("/profile")
         })
         .catch(err=>{

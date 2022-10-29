@@ -12,7 +12,7 @@ const Fav=()=>{
     //function ดึงข้อมูลทั้งหมดมาจากฐานข้อมูล
     const fetchData=()=>{
         axios
-        .post(`${process.env.REACT_APP_API}/collectionUser`,{user})
+        .post(`${process.env.REACT_APP_API}/getuserfavorite`,{user})
         .then(response=>{
             setData(response.data)
         })
@@ -67,28 +67,28 @@ const Fav=()=>{
             {data.map((data,index)=>(
                 <div key={index} className='container-post'>
                     <div className='pic-block-profile'>
-                        <img src={data.url} alt=""  className='ImgPreview'/>
+                        <img src={data.favoritebookDetails[0].url} alt=""  className='ImgPreview'/>
                     </div>
                     <div className='profile-block'>
                         <div className="from-card-profile">
                             <div className="form-control-profile">
-                                <h1>ชื่อหนังสือ : {data.bookname}</h1>
+                                <h1>ชื่อหนังสือ : {data.favoritebookDetails[0].bookname}</h1>
                             </div>
                             <div className="form-control-profile"> 
                                 <label>ราคา : </label>
-                                <p>{data.price} บาท</p>
+                                <p>{data.favoritebookDetails[0].price} บาท</p>
                             </div>
                             <div className="form-control-profile">
                                 <label>รายละเอียด : </label>
-                                <p>{data.details} </p>
+                                <p>{data.favoritebookDetails[0].details} </p>
                             </div>
                             <div className="form-control-profile">
                                 <label>ช่องทางการติดต่อ : </label>
-                                <p>{data.contact}</p>
+                                <p>{data.favoritebookDetails[0].contact}</p>
                             </div>
                             <div className="form-control-profile">
                                 <label>ผู้เขียน : </label>
-                                <p>{data.user}</p>
+                                <p>{data.favoritebookDetails[0].user}</p>
                             </div>
                         </div>
                         <div className='btn-component-profile'>
