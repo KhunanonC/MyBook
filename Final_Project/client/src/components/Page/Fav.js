@@ -40,7 +40,7 @@ const Fav=()=>{
     const deleteBlog=(slug)=>{
         //ส่ง request ไปที่ api เพื่อลบข้อมูล
         axios
-        .delete(`${process.env.REACT_APP_API}/delete/${slug}`,
+        .delete(`${process.env.REACT_APP_API}/deletefavorite/${user}/${slug}`,
         {
         headers:{
             authorization:`Bearer ${getToken()}`
@@ -63,7 +63,6 @@ const Fav=()=>{
                    <Link className="target">หนังสือที่สนใจ</Link> 
                 </div>
             </div>
-            <h1>fav book tset</h1>
             {data.map((data,index)=>(
                 <div key={index} className='container-post'>
                     <div className='pic-block-profile'>
@@ -92,8 +91,7 @@ const Fav=()=>{
                             </div>
                         </div>
                         <div className='btn-component-profile'>
-                                <Link className=''  to={`/edit-post/${data.slug}`}>แก้ไขข้อมูล</Link> &nbsp;
-                                <button className='btn-profile' onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
+                                <button className='btn-profile' onClick={()=>confirmDelete(data.favoritebookDetails[0].slug)}>ลบข้อมูล</button>
                         </div>
                     </div>
                 </div>

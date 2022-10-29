@@ -3,12 +3,32 @@ const userfavorite = require("../models/favoriteBook");
 exports.favorite=(req,res)=>{
     const {user,userfavoritebook} = req.body
 
-    userfavorite.create({user,userfavoritebook},(err,blog)=>{
-        if(err){
-            return res.status(400).json({error:"ได้เพิ่มในหนังสือที่สนใจไปแล้ว"})
+    userfavorite.find({user})
+    .then(
+        resp =>{
+            console.log(resp)
+            if(resp.length !== 0){
+                for(let i=0; i<(resp.length); i++){
+                    console.log(i)
+                    if(userfavoritebook === resp[i].userfavoritebook){
+                        return res.status(400).json({error:"ได้เพิ่มในหนังสือที่สนใจไปแล้ว"})
+                }
+            }
+            userfavorite.create({user,userfavoritebook},(err,blog)=>{
+                if(err){
+                    return res.json({error:"err"})
+                }
+                return res.json(blog)
+            })}else{
+                userfavorite.create({user,userfavoritebook},(err,blog)=>{
+                    if(err){
+                        return res.json({error:"err"})
+                    }
+                    return res.json(blog)
+                })
+            }
         }
-        return res.json(blog)
-    })
+    )
 }
 
 //ดึงข้อมูลจาก Database อ้างอิงตาม user
@@ -36,4 +56,15 @@ exports.getUserFavorite=(req,res)=>{
         }
     )
     
+}
+
+//ลบข้อมูลบน Database ฝั่ง Server
+exports.removefavorite=(req,res)=>{
+    const {user,slug} = req.params
+    userfavorite.findOneAndRemove({user,userfavoritebook:slug}).exec((err,blog)=>{
+        if(err) console.log(err)
+        res.json({
+            message:"ลบข้อมูลเรียบร้อย"
+        })
+    })
 }
