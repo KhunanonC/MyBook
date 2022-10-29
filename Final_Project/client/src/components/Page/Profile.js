@@ -1,5 +1,5 @@
 import './style/Profile.css';
-import {Link} from "react-router-dom";
+import {Link ,NavLink} from "react-router-dom";
 import axios from "axios";
 import {useState,useEffect} from "react";
 import Swal from "sweetalert2";
@@ -52,15 +52,20 @@ const Profile=()=>{
         })
         .catch(err=>console.log(err))
     }
-
     return(
         <div className='container-profile'>
             <div className='header-link'>
                 <div>
-                    <Link className="target">โพสต์ของฉัน</Link>
+                    <NavLink to={"/profile"} activeStyle={{ color:'orange' }}
+                    >
+                        โพสต์ของฉัน
+                    </NavLink>
                 </div>
                 <div>
-                   <Link to={"/fav-book"} className="target">หนังสือที่สนใจ</Link> 
+                   <NavLink to={"/fav-book"} activeStyle={{ color:'orange' }}
+                    >
+                        หนังสือที่สนใจ
+                    </NavLink> 
                 </div>
             </div>
             {data.map((data,index)=>(
@@ -76,7 +81,7 @@ const Profile=()=>{
                             <div className="form-control-profile"> 
                                 <label>ราคา : </label>
                                 <p>{data.price} บาท</p>
-                            </div>
+                             </div>
                             <div className="form-control-profile">
                                 <label>รายละเอียด : </label>
                                 <p>{data.details} </p>

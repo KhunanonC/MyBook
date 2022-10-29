@@ -1,5 +1,5 @@
 import './style/Profile.css';
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 import axios from "axios";
 import {useState,useEffect} from "react";
 import Swal from "sweetalert2";
@@ -52,15 +52,25 @@ const Fav=()=>{
         })
         .catch(err=>console.log(err))
     }
+    // Link active
+    // const navLinkStyles =({isActive})=>{
+    //     return {
+    //         fontWeight: isActive ? "bold":"normal",
+    //         textDecoration: isActive ? 'none':'underline',
+    //     }
+    // }
+    let LinkActive = {
+        color: "#2D86FF"
+      };
 
     return(
         <div className='container-profile'>
             <div className='header-link'>
                 <div>
-                    <Link to={"/profile"} className="target">โพสต์ของฉัน</Link>
+                    <NavLink to={"/profile"}  activeStyle={{ color:'orange' }}>โพสต์ของฉัน</NavLink>
                 </div>
                 <div>
-                   <Link className="target">หนังสือที่สนใจ</Link> 
+                   <NavLink  activeStyle={{ color:'orange' }} to = {"/fav-book"}>หนังสือที่สนใจ</NavLink> 
                 </div>
             </div>
             {data.map((data,index)=>(

@@ -1,4 +1,4 @@
-import {Link,withRouter} from "react-router-dom";
+import {Link,withRouter,NavLink} from "react-router-dom";
 import { useState } from "react";
 import "./Navigation.css"
 import MenuData from "../Data_Navidation/Menudata";
@@ -19,10 +19,10 @@ const Navigation=({history})=>{
                     </Link>
                     <div className="menu-bar-header">
                         <div className="func-component-header">
-                            <Link to="/">Home</Link>
-                            <Link to="/collection" >Collection</Link>
+                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="/collection" activeStyle={{ color:'orange' }}>Collection</NavLink>
                             {getUser() && (
-                                <Link to="/sell-book">SongTor</Link>
+                                <NavLink to="/sell-book" activeStyle={{ color:'orange' }}>SongTor</NavLink>
                             )}   
                         </div>
                         <div className="sign-component-header">
