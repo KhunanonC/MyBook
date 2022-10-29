@@ -14,12 +14,12 @@ const Navigation=({history})=>{
         <aside>
             <div className='navbar'>
                 <div className='navbar-toggle'>
-                    <Link to="#" className='manu-bar'> {/*The onclick event occurs when the user clicks on an element.*/}
-                        <GoThreeBars onClick={toggleMenu}/>
+                    <Link to="#" className='manu-bar'>  
+                        {/* <GoThreeBars onClick={toggleMenu}/> */}
                     </Link>
                     <div className="menu-bar-header">
                         <div className="func-component-header">
-                            <NavLink to="/">Home</NavLink>
+                            <Link to="/">Home</Link>
                             <NavLink to="/collection" activeStyle={{ color:'orange' }}>Collection</NavLink>
                             {getUser() && (
                                 <NavLink to="/sell-book" activeStyle={{ color:'orange' }}>SongTor</NavLink>
