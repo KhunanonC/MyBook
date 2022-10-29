@@ -18,6 +18,6 @@ route.put('/updatepost/:slug',update)
 route.get('/signleData/:slug',singleBlog)
 route.post('/favorite',favorite)
 route.post('/getuserfavorite',getUserFavorite)
-route.delete('/deletefavorite/:user/:slug',removefavorite)
+route.put('/deletefavorite/:user',removefavorite)
 
 module.exports=route

@@ -28,8 +28,8 @@ exports.remove=(req,res)=>{
 exports.update=(req,res)=>{
     const {slug} = req.params
     //ส่งข้อมูล => bookname,price,details,contact
-    const {bookname,price,details,contact} = req.body
-    bookSeller.findOneAndUpdate({slug},{bookname,price,details,contact},{new:true}).exec((err,blog)=>{
+    const {bookname,price,details,contact,url} = req.body
+    bookSeller.findOneAndUpdate({slug},{bookname,price,details,contact,url},{new:true}).exec((err,blog)=>{
         if(err) console.log(err)
         res.json(blog)
     })

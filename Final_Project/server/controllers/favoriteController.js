@@ -60,8 +60,9 @@ exports.getUserFavorite=(req,res)=>{
 
 //ลบข้อมูลบน Database ฝั่ง Server
 exports.removefavorite=(req,res)=>{
-    const {user,slug} = req.params
-    userfavorite.findOneAndRemove({user,userfavoritebook:slug}).exec((err,blog)=>{
+    const {user} = req.params
+    const {bookname} = req.body
+    userfavorite.findOneAndRemove({user,userfavoritebook:bookname}).exec((err,blog)=>{
         if(err) console.log(err)
         res.json({
             message:"ลบข้อมูลเรียบร้อย"
