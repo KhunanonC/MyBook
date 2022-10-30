@@ -83,7 +83,7 @@ const EditProfilePost=(props)=>{
         }
       })
       .then(async(response)=>{
-        await Swal.fire('แจ้งเตือน',"แก้ไขข้อมูลเรียบร้อย",'success')
+        await Swal.fire({title:"แก้ไขข้อมูลหนังสือเรียบร้อย",icon:'info'})
         const {bookname,price,details,contact,url,slug} = response.data
         setState({...state,bookname,price,details,contact,url,slug})
         history.push("/profile")

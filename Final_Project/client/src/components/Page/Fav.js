@@ -1,4 +1,5 @@
 import './style/Profile.css';
+import './style/Fav.css';
 import {Link,NavLink} from "react-router-dom";
 import axios from "axios";
 import {useState,useEffect} from "react";
@@ -101,7 +102,7 @@ const Fav=()=>{
                             </div>
                         </div>
                         <div className='btn-component-profile'>
-                                <button className='btn-profile' onClick={()=>confirmDelete(data.favoritebookDetails[0].bookname)}>ลบข้อมูล</button>
+                                <button className='delete-favorite' onClick={()=>confirmDelete(data.favoritebookDetails[0].bookname)}>ลบหนังสือที่สนใจ</button>
                         </div>
                     </div>
                 </div>

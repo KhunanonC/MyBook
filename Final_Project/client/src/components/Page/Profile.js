@@ -47,7 +47,7 @@ const Profile=()=>{
         }
         })
         .then(response=>{
-        Swal.fire("Deleted!",response.data.message,"success")
+        Swal.fire({title:response.data.message, icon:"info"})
         fetchData()
         })
         .catch(err=>console.log(err))

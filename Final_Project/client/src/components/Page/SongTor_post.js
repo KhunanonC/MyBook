@@ -36,12 +36,12 @@ const Sellbook_post=()=>{
           }
         })
         .then(async(response)=>{
-          await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
+          await Swal.fire({title:"บันทึกข้อมูลหนังสือเรียบร้อย",icon:'info'})
           setState({...state,user:"",bookname:"",price:"",details:"",contact:"",url:""})
           history.push("/profile")
         })
         .catch(err=>{
-          Swal.fire('แจ้งเตือน',err.response.data.error,'warning')
+          Swal.fire({title:err.response.data.error, icon:'warning'})
         })
       }
 
@@ -75,7 +75,7 @@ const Sellbook_post=()=>{
                         <label>URL รูปภาพ</label>
                         <input type="url" placeholder="กรุณากรอก URL รูปภาพ" value={url} onChange={inputValue("url")}/>
                     </div>
-                    <button className='submit-btn' type="submit">บันทึกข้อมูล</button>
+                    <button className='submit-btn' type="submit">บันทึกข้อมูลหนังสือ</button>
                 </form>  
             </div>
         </div>

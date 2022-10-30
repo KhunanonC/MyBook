@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useState,useEffect} from "react";
-import "./style/Collection.css"
+import "./style/Collection.css";
 import { FaSearch } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { getToken,getUser } from "../../services/authorize";
@@ -55,7 +55,7 @@ function App() {
             }
         })
         .then(async(response)=>{
-            await Swal.fire('แจ้งเตือน',"เพิ่มในหนังสือที่สนใจเรียบร้อย",'success')
+            await Swal.fire({title:"เพิ่มในหนังสือที่สนใจเรียบร้อย",icon:'info'})
             setState({...state,user:"",userfavoritebook:""})
         })
         .catch(err=>{
