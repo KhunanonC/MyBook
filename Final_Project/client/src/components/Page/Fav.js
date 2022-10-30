@@ -48,21 +48,11 @@ const Fav=()=>{
         }
         })
         .then(response=>{
-        Swal.fire("Deleted!",response.data.message,"success")
+        Swal.fire({title:response.data.message,icon:'info'})
         fetchData()
         })
         .catch(err=>console.log(err))
     }
-    // Link active
-    // const navLinkStyles =({isActive})=>{
-    //     return {
-    //         fontWeight: isActive ? "bold":"normal",
-    //         textDecoration: isActive ? 'none':'underline',
-    //     }
-    // }
-    let LinkActive = {
-        color: "#2D86FF"
-      };
 
     return(
         <div className='container-profile'>

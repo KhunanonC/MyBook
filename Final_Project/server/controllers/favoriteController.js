@@ -65,7 +65,7 @@ exports.removefavorite=(req,res)=>{
     userfavorite.findOneAndRemove({user,userfavoritebook:bookname}).exec((err,blog)=>{
         if(err) console.log(err)
         res.json({
-            message:"ลบข้อมูลเรียบร้อย"
+            message:"ลบหนังสือที่สนใจเรียบร้อยแล้ว"
         })
     })
 }

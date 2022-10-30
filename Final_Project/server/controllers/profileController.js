@@ -19,7 +19,7 @@ exports.remove=(req,res)=>{
     bookSeller.findOneAndRemove({slug}).exec((err,blog)=>{
         if(err) console.log(err)
         res.json({
-            message:"ลบข้อมูลหนังสือเรียบร้อย"
+            message:"ลบข้อมูลหนังสือเรียบร้อยแล้ว"
         })
     })
 }

@@ -50,11 +50,7 @@ const SignIn=(props)=>{
                         <input type="password" placeholder="กรุณากรอกรหัสผ่าน" value={password} onChange={inputValue("password")}/>
                     </div>
                     <button className='sign-in-btn' type="submit">เข้าสู่ระบบ</button>
-                </form>   
-            </div>
-                <hr></hr>
-            <div>
-                <h1></h1>
+                </form>
             </div>    
         </div>
     )
