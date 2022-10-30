@@ -25,7 +25,7 @@ const SignIn=(props)=>{
           //login สำเร็จ
           authenticate(response,()=>props.history.push("/")) //login เสร็จแล้วกลับไปหน้า /
         }).catch(err=>{
-            Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+            Swal.fire('แจ้งเตือน',err.response.data.error,'warning')
         })
     }
 

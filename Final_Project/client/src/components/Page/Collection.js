@@ -59,7 +59,7 @@ function App() {
             setState({...state,user:"",userfavoritebook:""})
         })
         .catch(err=>{
-            Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+            Swal.fire('แจ้งเตือน',err.response.data.error,'warning')
         })
     }
 //----------------------------------------------------------------------------------------------------

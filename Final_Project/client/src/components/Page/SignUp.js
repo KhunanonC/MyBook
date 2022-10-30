@@ -39,7 +39,7 @@ const SignUp=()=>{
         history.push("/sign-in")
       })
       .catch(err=>{
-        Swal.fire('แจ้งเตือน',err.response.data.error,'error')
+        Swal.fire('แจ้งเตือน',err.response.data.error,'warning')
       })
     }
 
