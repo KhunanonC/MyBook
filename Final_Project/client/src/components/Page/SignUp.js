@@ -34,7 +34,7 @@ const SignUp=()=>{
         }
       })
       .then(async(response)=>{
-        await Swal.fire('แจ้งเตือน',"บันทึกข้อมูลเรียบร้อย",'success')
+        await Swal.fire({title:"สมัครสมาชิกเรียบร้อยแล้ว", icon:'info'})
         setState({...state,username:"",telephone:"",email:"",password:"",confirmpassword:""})
         history.push("/sign-in")
       })
