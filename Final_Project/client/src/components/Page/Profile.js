@@ -97,7 +97,7 @@ const Profile=()=>{
                         </div>
                         <div className='btn-component-profile'>
                                 <Link className=''  to={`/edit-post/${data.slug}`}>แก้ไขข้อมูล</Link> &nbsp;
-                                <button className='btn-profile' onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
+                                <button className='btn-profile-delete' onClick={()=>confirmDelete(data.slug)}>ลบข้อมูล</button>
                         </div>
                     </div>
                 </div>

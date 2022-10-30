@@ -92,3 +92,14 @@
 .form-control-sellbook input:focus{
     outline:none;
 }
+.submit-btn{
+    background: green;
+    color: white;
+    cursor:pointer;
+    width:150px;
+    margin: 20px;
+    border: 2px solid green;
+    display: block;
+    padding:10px;
+    font-size: 16px;
+}

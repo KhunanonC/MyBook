@@ -74,3 +74,14 @@
 .form-control-collection label{
   font-weight: bold;
 }
+.favorite-submit{
+  background: black;
+  color: white;
+  cursor:pointer;
+  width:150px;
+  margin: 20px;
+  border: 2px solid black;
+  display: block;
+  padding:10px;
+  font-size: 16px;
+}

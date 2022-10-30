@@ -70,13 +70,13 @@
     /* margin-top: 50px; */
     /* border: 1px solid blue; */
 }
-.btn-profile{
-    background: #000;
+.btn-profile-delete{
+    background: red;
     color: white;
     cursor:pointer;
     width:150px;
     margin: 10px;
-    border: 2px solid #000;
+    border: 2px solid red;
     display: block;
     padding:10px;
     font-size: 16px;

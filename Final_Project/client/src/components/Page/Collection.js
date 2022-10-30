@@ -112,7 +112,7 @@ function App() {
                             e.preventDefault()
                             submitForm(blog.bookname)}}>
                             {getUser() && (
-                                <button className='btn-profile' type="submit">สนใจหนังสือ</button> 
+                                <button className='favorite-submit' type="submit">สนใจหนังสือ</button> 
                             )}
                         </form>
                     </div>

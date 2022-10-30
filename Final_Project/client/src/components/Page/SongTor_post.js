@@ -75,7 +75,7 @@ const Sellbook_post=()=>{
                         <label>URL รูปภาพ</label>
                         <input type="url" placeholder="กรุณากรอก URL รูปภาพ" value={url} onChange={inputValue("url")}/>
                     </div>
-                    <button className='sign-in-btn' type="submit">บันทึกข้อมูล</button>
+                    <button className='submit-btn' type="submit">บันทึกข้อมูล</button>
                 </form>  
             </div>
         </div>

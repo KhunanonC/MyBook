@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import './style/SongTor_post.css';
+import './style/EditProfilePost.css';
 import {getUser,getToken} from "../../services/authorize";
 import {Link,useHistory} from "react-router-dom";
 import axios from "axios";
@@ -60,7 +61,7 @@ const EditProfilePost=(props)=>{
                         <label>URL รูปภาพ</label>
                         <input type="url" placeholder="กรุณากรอก URL รูปภาพ" value={url} onChange={inputValue("url")}/>
                     </div>
-                    <button className='sign-in-btn' type="submit">บันทึกข้อมูลที่แก้ไข</button>
+                    <button className='edit-submit' type="submit">บันทึกข้อมูลที่แก้ไข</button>
                 </form>  
             </div>
         </div>
